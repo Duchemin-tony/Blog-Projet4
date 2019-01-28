@@ -49,3 +49,4 @@ function edit($id, $comment, $postId)
         header('Location : index.php?action=post&id=' . $_GET['post']);
     }
 }
+}
