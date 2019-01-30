@@ -63,7 +63,30 @@
 <main role="main" class="container">
 
   <div class="starter-template" style="padding-top: 100px;">
-  	<?= $content ?>
+
+    <?php
+    if (!isset($_SESSION['login'])) //On est dans la page de formulaire
+    { ?>
+      <p>Vous n'êtes pas autorisé à accéder à cette page. Merci devous connecter !</p>
+      <form method="POST">
+        <fieldset>
+          <legend>Connexion</legend>
+          <p>
+            <label for="login">Identifiant :</label><input name="login" type="text" id="login" /><br />
+            <label for="pass">Mot de Passe :</label><input type="password" name="pass" id="pass" />
+          </p>
+          <p><input type="submit" value="Connexion" /></p>
+        </fieldset>
+      </form>
+    <?php
+    }
+    else { ?>
+      <p><a href="index.php?admin=logout">Déconnexion</a></p>
+    <?php
+      echo $content;
+    }
+    ?>
+  	
   </div>
 
 </main><!-- /.container -->

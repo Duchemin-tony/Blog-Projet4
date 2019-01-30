@@ -33,5 +33,20 @@ class CommentManager extends Manager
 
 		return $affectedComment;
 	}
+
+	public function getReporting($postId)
+    {
+        $db = $this->dbConnect();
+        $reporting = $db->prepare('SELECT * FROM posts AS p INNER JOIN comments AS c ON c.post_id = p.id INNER JOIN reporting AS r ON c.id = r.comment_id WHERE p.id = ?');
+        $reporting->execute(array($postId));
+        return $reporting;
+    }
+    public function postReporting($commentId)
+    {
+        $db = $this->dbConnect();
+        $comments = $db->prepare('INSERT INTO reporting(comment_id, reporting_date) VALUES(?, NOW())');
+        $affectedLines = $comments->execute(array($commentId));
+        return $affectedLines;
+    }
 }
 
