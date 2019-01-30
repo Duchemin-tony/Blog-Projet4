@@ -1,5 +1,7 @@
+<?php ob_start(); ?>
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -24,16 +26,39 @@
         }
       }
     </style>
-    <!-- Custom styles for this template -->
-    <link href="starter-template.css" rel="stylesheet">
+
   </head>
   <body>
     <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
   <a class="navbar-brand" href="#">Billet simple pour l'Alaska</a>
+
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-</nav>
+ <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active">                         
+                            <a class="nav-link" href="index.php">Accueil<span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.php?action=listPosts">Blog</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.php?action=contact">Contact</a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <span class="glyphicon glyphicon-home"></span>
+                            <a class="nav-link" href="index.php.action=connexion"></i>Connexion</a>
+                        </li>
+                        <li class="nav-item">
+                            <span class="glyphicon glyphicon-home"></span>
+                            <a class="nav-link" href="index.php?action=deconnexion">Deconnexion</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
 
 <main role="main" class="container">
 

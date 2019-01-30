@@ -5,26 +5,26 @@ require_once('model/CommentManager.php');
 
 function listPosts()
 {
-	$postManager = new Blog\model\PostManager();
+	$postManager = new model\PostManager();
 	$posts = $postManager->getPosts();
 
-	require('view/frontend/listPostsView.php');
+	require('view/listPostsView.php');
 }
 
 function post()
 {
-	$postManager = new Blog\model\PostManager();
-	$commentManager = new Blog\model\CommentManager();
+	$postManager = new model\PostManager();
+	$commentManager = new model\CommentManager();
 
 	$post = $postManager->getPost($_GET['id']);
 	$comments = $commentManager->getComments($_GET['id']);
 
-	require('view/frontend/postView.php');
+	require('view/postView.php');
 }
 
 function addComment($postId, $author, $comment)
 {
-	$commentManager = new \Blog\model\CommentManager();
+	$commentManager = new model\CommentManager();
 
 	$affectedLines = $commentManager->postComment($postId, $author, $comment);
 
@@ -37,7 +37,7 @@ function addComment($postId, $author, $comment)
 
 function edit($id, $comment, $postId)
 {
-    $commentManager = new Blog\model\CommentManager();
+    $commentManager = new model\CommentManager();
  
     $affectedcomment = $commentManager->editComment($id, $comment, $postId);
  
@@ -49,4 +49,5 @@ function edit($id, $comment, $postId)
         header('Location : index.php?action=post&id=' . $_GET['post']);
     }
 }
+
 }

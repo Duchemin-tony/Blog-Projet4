@@ -1,6 +1,6 @@
 <?php 
 
-namespace Blog\model;
+namespace model;
 
 class Manager
 {

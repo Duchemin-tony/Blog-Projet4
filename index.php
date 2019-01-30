@@ -1,6 +1,5 @@
 <?php
 require('controller/frontend.php');
-
 try {
     if (isset($_GET['action'])) {
         if ($_GET['action'] == 'listPosts') {
