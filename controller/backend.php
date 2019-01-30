@@ -51,7 +51,7 @@ function adminIndex()
     $adminManager = new AdminManager();
     $reporting = $adminManager->getReportingAdmin();
 
-    require('view/backend/adminIndex.php');
+    require('view/backend/adminView.php');
 }
 
 function adminDeleteReport($commentId)
@@ -116,7 +116,7 @@ function adminChangePost($postId)
     $comments = $commentManager->getComments($postId);
     $reporting = $commentManager->getReporting($postId);
 
-    require('view/backend/adminChangePost.php');
+    require('view/backend/adminEditPost.php');
 }
 
 function adminChangingPost($postId) 

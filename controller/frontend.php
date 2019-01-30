@@ -52,7 +52,7 @@ function report($commentId, $postId)
 
 function error($e)
 {
-    require('view/frontend/errorView.php');
+    require('view/frontend/ERROR404.php');
 }
 
 function checkPost($postId)

@@ -7,11 +7,11 @@
 <div class="news">
     <form action="index.php?action=adminChangingPost&amp;id=<?= $post['id'] ?>" method="post">
         <div>
-            <label for="title">Titre du chapitre</label><br />
+            <label for="title">Titre de l'article</label><br />
             <input type="text" id="title" name="title" value="<?= htmlspecialchars($post['title']) ?>"/>
         </div>
         <div>
-            <label for="chapterContent">Contenu du chapitre</label><br />
+            <label for="chapterContent">Contenu de l'article</label><br />
             <textarea  id="chapterContent" name="chapterContent"><?= nl2br($post['content']) ?></textarea>
         </div>
         <div>

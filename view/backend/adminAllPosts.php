@@ -1,4 +1,4 @@
-<?php $title = 'Tous les chapitres'; ?>
+<?php $title = 'Administrations : Tous les articles'; ?>
 
 <?php ob_start(); ?>
 <h1>Tous les articles</h1>

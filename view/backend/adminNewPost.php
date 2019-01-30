@@ -1,16 +1,16 @@
-<?php $title = 'Partie Administrateur : Nouveau Chapitre'; ?>
+<?php $title = 'Administration : Ajouter article'; ?>
 
 <?php ob_start(); ?>
 
-<h1>Edition d'un nouveau Chapitre</h1>
+<h1>Ajouter un article</h1>
 
 <form action="index.php?action=adminAddPost" method="post">
     <div>
-        <label for="title">Titre du chapitre</label><br />
+        <label for="title">Titre de l'article</label><br />
         <input type="text" id="title" name="title" />
     </div>
     <div>
-        <label for="chapterContent">Contenu du chapitre</label><br />
+        <label for="chapterContent">Contenu de l'article</label><br />
         <textarea  id="chapterContent" name="chapterContent"></textarea>
     </div>
     <div>

@@ -47,17 +47,6 @@
                             <a class="nav-link" href="index.php?action=contact">Contact</a>
                         </li>
                     </ul>
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <span class="glyphicon glyphicon-home"></span>
-                            <a class="nav-link" href="index.php.action=connexion"></i>Connexion</a>
-                        </li>
-                        <li class="nav-item">
-                            <span class="glyphicon glyphicon-home"></span>
-                            <a class="nav-link" href="index.php?action=deconnexion">Deconnexion</a>
-                        </li>
-                    </ul>
-                </div>
             </nav>
 
 <main role="main" class="container">

@@ -1,4 +1,4 @@
-<?php $title = 'Partie Administrateur'; ?>
+<?php $title = 'Administration'; ?>
 
 <?php ob_start(); ?>
 
@@ -14,9 +14,9 @@ while ($report = $reporting->fetch())
 <?php
 } ?>
 
-<h2>Gestion du livre</h2>
-<a href="index.php?action=adminNewPost"><button>Nouveau Chapitre</button></a>
-<a href="index.php?action=adminAllPosts"><button>Voir tous les Chapitres</button></a>
+<h2>Gestion du blog</h2>
+<a href="index.php?action=adminNewPost"><button>Nouvel article</button></a>
+<a href="index.php?action=adminAllPosts"><button>Voir tous les articles</button></a>
 
 <?php $content = ob_get_clean(); ?>
 
