@@ -1,5 +1,3 @@
-<?php ob_start(); ?>
-
 <!DOCTYPE html>
 <html lang="fr">
   <head>
@@ -29,7 +27,8 @@
 
   </head>
   <body>
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+
+<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
   <a class="navbar-brand" href="#">Billet simple pour l'Alaska</a>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
@@ -38,49 +37,21 @@
 
  <div class="collapse navbar-collapse" id="navbarCollapse">
 
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active"><a class="nav-link" href="index.php">Accueil</a></li>
 
-                    <ul class="navbar-nav mr-auto">
-                        <li class="nav-item active">                         
-                            <a class="nav-link" href="index.php">Accueil<span class="sr-only">(current)</span></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="index.php?action=listPosts">Blog</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="index.php?action=contact">Contact</a>
-                        </li>
-                    </ul>
+                <ul class="nav navbar-nav">
 
-                    <?php if (!isset($_SESSION['login'])) { ?>
+                        <li class="nav-item active"><a class="nav-link" href="admin.php">Administration</a></li> 
 
-                  <form class="navbar-form navbar-right" method="POST" style="display: flex;">
-                    <?php if (isset($_SESSION['message'])) { ?>
-                      <div class="form-group"><p class="red"><?= $_SESSION['message'] ?></p></div>
-                    <?php } ?>
-                    <div class="form-group">
-                      <input name="login" type="text" id="login" placeholder="Identifiant" class="form-control">
-                    </div>
-                    <div class="form-group">
-                        <input type="password" name="pass" id="pass" placeholder="Mot de passe" class="form-control">
-                    </div>
-                    <button type="submit" class="btn btn-success">Connexion</button>
-                  </form>
+                        <li class="nav-item active"><a class="nav-link" href="index.php?action=deconnect"</a></li> 
 
-              <?php
-          }
-          else {
-          ?>
-            
-            <ul class="nav navbar-right navbar-nav">
-              <li><a href="index.php?action=admin"><button class="btn btn-xs btn-info">Accéder à la partie Admin</button></a></li>
-              <li><a href="index.php?admin=logout"><button class="btn btn-xs btn-primary">Déconnexion</button></a></li>
-              </ul>
+                    <li class="nav-item active"><a class="nav-link" href="index.php?action=connexion"">Connexion</a></li>
+                    <li class="nav-item active"><a class="nav-link" href="index.php?action=register"">Inscription</a></li>
 
-            <?php
-          }
-          ?>
-                </div>
-            </nav>
+                </ul>
+            </ul>
+        </nav>
 
 <main role="main" class="container">
 
@@ -88,6 +59,6 @@
   	<?= $content ?>
   </div>
 
-</main><!-- /.container -->
+</main>
 </body>
 </html>

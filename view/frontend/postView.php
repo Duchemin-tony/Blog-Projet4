@@ -1,70 +1,131 @@
-<?php $title = htmlspecialchars($post['title']); ?>
 
-<?php ob_start(); ?>
+
 <h1>Billet simple pour l'Alaska</h1>
 <p><a href="index.php"><button>Retour à la liste des articles</button></a></p>
 
-<div class="news">
+<div>
     <h2>
-        <?= htmlspecialchars($post['title']) ?>
-        <em>le <?= $post['creation_date_fr'] ?></em>
+        <?= $post->title(); ?>
+
+        <em>le <?= $post->creationDate(); ?></em>
+
+        <?php if($post->modifDate() != NULL) { ?> 
+            <em>Modifié le :<?= $ticket->modifDate(); ?></em> 
+        <?php } ?>
+
     </h2>
 
-    <?= nl2br($post['content']) ?>
+    <?= $post->content(); ?>
 
 </div>
 
 <h3>Commentaires</h3>
 
-<form action="index.php?action=addComment&amp;id=<?= $post['id'] ?>" method="post">
-    <div>
-        <label for="author">Auteur</label><br />
-        <input type="text" id="author" name="author" />
-    </div>
-    <div>
-        <label for="comment">Commentaire</label><br />
-        <textarea id="comment" name="comment"></textarea>
-    </div>
-    <div>
-        <input type="submit" />
-    </div>
-</form>
+<?php
+        if(count($commentsPost) != 0)
+        {
+        ?>
+            <div>
+                <?php for($i = 0; $i < count($commentsPost); $i++) : ?>
+                    <?php
+                        if($commentsPost[$i]->alertComment() == 1)
+                        {
+                    ?>
+                        <div>
+                    <?php
+                        }
+                        else
+                        {
+                    ?>
+                        <div>
+                    <?php
+                        }
+                    ?>
+                        <p>
+                            <p>Poster par : <?= $commentsPost[$i]->mailUser(); ?></p>
+                            <p>Le : <?= $commentsPost[$i]->creationDateAddComment(); ?></p>
+                        </p>
 
-<?php $i=0;
-while ($report = $reporting->fetch())
-{
-    $comments_report[$i] = $report['comment_id'];
-    $i++;
-}
-while ($comment = $comments->fetch())
-{
-?>
-    <p><strong><?= htmlspecialchars($comment['author']) ?></strong> le <?= $comment['comment_date_fr'] ?></p>
-    <p><?= nl2br(htmlspecialchars($comment['comment'])) ?></p>
+                        <div>
+                            <?= $commentsPost[$i]->contentComment(); ?>
+                        </div>
 
-     <?php 
-    $message_report=false;
-    if (isset($comments_report)){
-        for ($i=0 ; $i<count($comments_report) ; $i++){
-            if ($comments_report[$i] == $comment['id'])
-            {
-                $message_report=true;
-            }
+                        <form action="index.php?action=post&id=<?= $_GET['id']; ?>" method="post">
+                            <p>
+                                <input type="hidden" name="idComment" value="<?= $commentsPost[$i]->idComment(); ?>">
+                                <input type="hidden" name="reportComment" value="reportComment">
+                                <?php
+                                if($commentsPost[$i]->alertComment() == 1)
+                                {
+                                ?>
+                                    <input type="submit" value="Commentaire signaler" disabled>
+                                <?php
+                                }
+                                else
+                                {
+                                ?>
+                                    <input type="submit" value="Signaler le commentaire">
+                                <?php
+                                }
+                                ?>
+
+                            </p>
+                        </form>
+                    </div>
+                <?php endfor; ?>
+            </div>
+        <?php
         }
-    }
-    
-    if (isset($message_report) && $message_report == true)
-    { ?>
-        <p class="red">Ce commentaire a déjà été signalé. Il sera traité par l'administrateur au plus vite.</p>
-    <?php
-    }
-    else{
-    ?>
-        <p><a href="index.php?action=report&amp;comment_id=<?= $comment['id'] ?>&amp;post_id=<?= $comment['post_id'] ?>"><button class="reporting">Signaler</button></a></p>
-    <?php 
-    }
-}
-?>
-<?php $content = ob_get_clean(); ?>
+        else
+        {
+            echo 'Aucun commentaire n\'a était poster sur ce chapitre';
+        }
+        ?>
+    </article>
 
-<?php require('template.php'); ?> 
+    <article>
+        <h1>Laisser un commentaire :</h1>
+
+        <form action="index.php?action=post&id=<?= $_GET['id']; ?>" method="post">
+            <?php if(isset($_SESSION['errorPostComment'])) { echo '<p class="errorBlog">' . $_SESSION['errorPostComment'] . '</p>'; } ?>
+            <div>
+            <?php
+            if(isset($_SESSION['email']))
+            {
+            ?>
+                <p>
+                    <label for="email">Votre adresse E-mail :</label>
+                    <input type="email" name="email" id="email" value="<?= $_SESSION['email']; ?>" disabled>
+                    <input type="hidden" name="email" id="email" value="<?= $_SESSION['email']; ?>">
+                </p>
+            <?php
+            }
+            else
+            {
+            ?>
+                <p>
+                    <label for="email">Votre adresse E-mail :</label>
+                    <input type="email" name="email" id="email">
+                </p>
+
+                <p>
+                    <label for="password">Mot de passe :</label>
+                    <input type="password" name="password" id="password">
+                </p>
+            <?php
+            }
+            ?>
+            </div>
+            <div>
+                <p>
+                    <label for="comment">Votre commentaire :</label><br>
+                    <textarea name="comment"></textarea>
+                </p>
+            </div>
+            <p>
+                <input type="hidden" name="post_id" value="<?= $_GET['id']; ?>">
+                <input type="hidden" name="publicationComment" value="publicationComment">
+                <input type="submit" class="buttonBlog" value="Envoyer le commentaire">
+            </p>
+        </form>
+    </article> 
