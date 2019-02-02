@@ -4,10 +4,12 @@ if(isset($_SESSION['idUser']))
     // Redirige le membre vers index.php
     header('Location:index.php');
 }
-?>
+
+$this->setTitle('Connexion - Billet simple pour l\'Alaska'); ?>
+
 
 <body class="text-center">
-    <form class="form-signin" method="post" action="index.php?action=connexion">
+    <form method="post" action="index.php?action=connexion">
 
       <h1 class="h3 mb-3 font-weight-normal">Connexion</h1>
         

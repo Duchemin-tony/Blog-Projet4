@@ -14,7 +14,7 @@ class ControllerConnect extends Controller
         }
         else
         {
-            return 'Pseudo et mot de passe obligatoire !';
+            return 'Email et mot de passe obligatoire !';
         }
     }
 

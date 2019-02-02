@@ -23,7 +23,7 @@ else
 
         if(isset($_GET['postId'])) { $postId = $_GET['postId']; } else { $postId = $comments[$i]->postId(); }
     ?>
-        <div <?php if($comments[$i]->alertComment()) { ?>class="commentAlert"<?php } else { ?>class="comment"<?php } ?>>
+        <div <?php if($comments[$i]->alertComment()) { ?><?php } else { ?><?php } ?>>
             <div>
                 <p>Poster par : <span><?= $comments[$i]->emailUser(); ?></span></p>
                 <p>Poster le : <span><?= $comments[$i]->creationDateComment(); ?></span></p>

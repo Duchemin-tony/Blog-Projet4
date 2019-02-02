@@ -28,7 +28,7 @@ class CommentsManager extends Manager
         $request->execute() or die(print_r($request->errorInfo(), TRUE));
     }
 
-    public function deleteCommentPost($idPost)
+    public function deleteCommentPost($postId)
     {
         $bdd = parent::bddConnect();
         $request = $bdd->prepare('DELETE FROM comments WHERE postId = :postId');

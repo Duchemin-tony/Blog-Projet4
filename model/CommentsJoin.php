@@ -67,7 +67,7 @@ class CommentsJoin extends Hydrator
     public function creationDateComment() { return $this->_creationDateComment; }
     public function contentComment() { return $this->_contentComment; }
     public function alertComment() { return $this->_alertComment; }
-    public function emailUser() { return $this->emailUser; }
+    public function emailUser() { return $this->_emailUser; }
     public function titlePost() { return $this->_titlePost; }
     public function postId() { return $this->_postId; }
 }

@@ -21,7 +21,7 @@ class ControllerRegister extends Controller
                         'password' => $post['password']
                     ];
                     $stateRegister = parent::connect($dataUser);
-                    if($stateRegister == 'Vous n\'êtes pas inscrit')
+                    if($stateRegister == 'Email non reconnu')
                     {
                         parent::register($dataUser);
                     }
@@ -37,7 +37,7 @@ class ControllerRegister extends Controller
             }
             else
             {
-                return 'Merci de confirmer votre Pseudo';
+                return 'Merci de confirmer votre email';
             }
         }
         else

@@ -1,3 +1,5 @@
+<?php $this->setTitle('Billet simple pour l\'Alaska'); ?>
+
     <div class="album py-5 bg-light">
         <div class="container ">
             <h1 class="title-publication">Dernières publications :</h1>

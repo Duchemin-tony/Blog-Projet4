@@ -28,7 +28,7 @@ class ControllerDisplayPost extends Controller
             $userConnexion = parent::connect($dataUser);
             if($userConnexion != null)
             {
-                if($userConnexion == 'Pseudo non reconnu')
+                if($userConnexion == 'Email non reconnu')
                 {
                     parent::register($dataUser);
                     $this->addComment($comment, $postId, $_SESSION['idUser']);
@@ -68,8 +68,8 @@ class ControllerDisplayPost extends Controller
     {
         $post = $this->PostManager()->getPost($postId);
         $commentsPost = $this->commentManager()->getListCommentsPost($postId);
-        $viewDisplayPost = new View('postView');
-        $viewDisplayPost->generate(array(
+        $postView = new View('postView');
+        $postView->generate(array(
             'post' => $post,
             'commentsPost' => $commentsPost
         ));

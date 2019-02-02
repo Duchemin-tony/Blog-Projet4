@@ -32,7 +32,7 @@ class Controller
                 }
                 else
                 {
-                    return 'Pseudo introuvable';
+                    return 'Email non reconnu';
                 }
             }
             else
@@ -42,7 +42,7 @@ class Controller
         }
         else
         {
-            return 'Le pseudo saisi n\'est pas valide';
+            return 'L\'email saisi n\'est pas valide';
         }
     }
 
@@ -57,6 +57,5 @@ class Controller
     }
 
     public function setUserManager($userManager) { $this->_userManager = $userManager; }
-
     public function userManager() { return $this->_userManager; }
 }

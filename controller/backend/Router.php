@@ -83,7 +83,7 @@ class Router
                                 }
                                 else
                                 {
-                                    throw new Exception("Identifiant de chapitre incorrect");
+                                    throw new Exception("Identifiant d'article incorrect");
                                 }
                             }
                             if($_SERVER["REQUEST_METHOD"] == "POST")
