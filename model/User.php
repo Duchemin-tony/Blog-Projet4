@@ -25,7 +25,7 @@ class User extends Hydrator
     {
         if(!filter_var($email, FILTER_VALIDATE_EMAIL))
         {
-            trigger_error('L\'adresse email saisi n\'est pas valide', E_USER_WARNING);
+            trigger_error('Le pseudo saisi n\'est pas valide', E_USER_WARNING);
             return;
         }
         $this->_email = $email;

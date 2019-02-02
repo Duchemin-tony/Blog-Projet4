@@ -22,12 +22,14 @@ class Router
 {
     private $_ctrlIndex;
     private $_ctrlConnect;
-    private $_ctrlRegistration;
+    private $_ctrlRegister;
     private $_ctrlDisplayPost;
 
     public function __construct()
     {
         $this->setCtrlIndex(new ControllerIndex());
+        $this->setCtrlConnect(new ControllerConnect());
+        $this->setCtrlRegister(new ControllerRegister());
         $this->setCtrlDisplayPost(new ControllerDisplayPost());
     }
 
@@ -49,7 +51,7 @@ class Router
 
                                 if($_POST['idComment'] != 0)
                                 {
-                                    $this->ctrlDisplayTicket()->alertComment($_POST['idComment']);
+                                    $this->ctrlDisplayPost()->alertComment($_POST['idComment']);
                                 }
                                 else
                                 {
@@ -58,16 +60,15 @@ class Router
                             }
                             else if(isset($_POST['publicationComment']) && ($_POST['publicationComment'] == 'publicationComment')) 
                             {
-                                if(isset($_SESSION['email']) && (isset($_SESSION['id_user'])))
+                                if(isset($_SESSION['email']) && (isset($_SESSION['idUser'])))
                                 {
-                                    $this->ctrlDisplayTicket()->addComment($_POST['comment'], $_POST['post_id'], $_SESSION['id_user']);
+                                    $this->ctrlDisplayPost()->addComment($_POST['comment'], $_POST['postId'], $_SESSION['idUser']);
                                 }
                                 else {
-                                    $_SESSION['errorPostComment'] = $this->ctrlDisplayPost()->addUserComment($_POST['post_id'], $_POST['email'], $_POST['password'], $_POST['comment']);
+                                    $_SESSION['errorPostComment'] = $this->ctrlDisplayPost()->addUserComment($_POST['postId'], $_POST['email'], $_POST['password'], $_POST['comment']);
                                 }
                             }
                         }
-
                         if(isset($_GET['id']))
                         {
                             $_GET['id'] = intval($_GET['id']);
@@ -117,7 +118,7 @@ class Router
                         $this->error($e->getMessage());
                     }
                 }
-                else if($_GET['action'] == 'deconnexion')
+                else if($_GET['action'] == 'deconnect')
                 {
                     session_destroy();
                     header("Location: $_SERVER[HTTP_REFERER]");

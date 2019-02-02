@@ -1,19 +1,32 @@
+<?php
+if(isset($_SESSION['idUser']))
+{
+    header('Location:index.php');
+}
+?>
+
 <body class="text-center">
-    <form class="form-signin" method="post" action="index.php?action=register">
+    <form method="post" action="index.php?action=register">
 
   <h1 class="h3 mb-3 font-weight-normal">INSCRIPTION</h1>
 
-  <label for="email" class="sr-only">Saisissez une adresse mail</label>
-  <input type="email" id="email" name="email" class="form-control" placeholder="Saisissez une adresse mail" required autofocus><br>
+  <?php if(isset($_SESSION['errorRegister'])) { echo '<p class="errorBlog">' . $_SESSION['errorRegister'] . '</p>'; } ?>
 
-  <label for="emailConfirm" class="sr-only">Confirmer adresse email</label>
-  <input type="email" id="emailConfirm" name="emailConfirm" class="form-control" placeholder="Confirmer adresse email" required autofocus><br>
+  <label for="email" class="sr-only">Saisissez un pseudo</label>
+  <input type="email" id="email" name="email" class="form-control" placeholder="Saisissez un psudo" <?php if(isset($msgRegister)) { echo 'value='.$_POST['email']; } ?>>
+  <br>
 
-  <label for="passwordConfirm" class="sr-only">Mot de passe</label>
-  <input type="password" id="passwordConfirm" name="passwordConfirm" class="form-control" placeholder="Mot de passe" required><br>
+  <label for="emailConfirm" class="sr-only">Confirmer votre pseudo</label>
+  <input type="email" id="emailConfirm" name="emailConfirm" class="form-control" placeholder="Confirmer votre pseudo" <?php if(isset($msgRegister)) { echo 'value='.$_POST['emailConfirm']; } ?>>
+  <br>
+
+  <label for="password" class="sr-only">Mot de passe</label>
+  <input type="password" id="password" name="password" class="form-control" placeholder="Mot de passe">
+  <br>
 
   <label for="passwordConfirm" class="sr-only">Confirmez mot de passe</label>
-  <input type="password" id="passwordConfirm" name="passwordConfirm" class="form-control" placeholder="Confirmez mot de passe" required><br>
+  <input type="password" id="passwordConfirm" name="passwordConfirm" class="form-control" placeholder="Confirmez mot de passe" >
+  <br>
 
   <button class="btn btn-lg btn-primary btn-block" type="submit">S'inscrire</button>
 
@@ -21,4 +34,3 @@
 
 </form>
 </body>
-

@@ -11,6 +11,7 @@ class ControllerRegister extends Controller
             $post['emailConfirm']= htmlspecialchars($post['emailConfirm']);
             $post['password'] = htmlspecialchars($post['password']);
             $post['passwordConfirm'] = htmlspecialchars($post['passwordConfirm']);
+            
             if($post['email'] == $post['emailConfirm'])
             {
                 if($post['password'] == $post['passwordConfirm'])
@@ -36,7 +37,7 @@ class ControllerRegister extends Controller
             }
             else
             {
-                return 'Merci de confirmer votre adresse email';
+                return 'Merci de confirmer votre Pseudo';
             }
         }
         else

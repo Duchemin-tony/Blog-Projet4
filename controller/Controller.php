@@ -13,7 +13,7 @@ class Controller
     {
         if(filter_var($dataUser['email'], FILTER_VALIDATE_EMAIL))
         {
-            if(strlen($dataUser['password']) >= 6)
+            if(strlen($dataUser['password']) >= 4)
             {
                 $user = new User($dataUser);
                 $userConnexion = $this->userManager()->connexionUser($user);
@@ -21,7 +21,7 @@ class Controller
                 {
                     if(password_verify($dataUser['password'], $userConnexion->password()))
                     {
-                        $_SESSION['id_user'] = $userConnexion->id();
+                        $_SESSION['idUser'] = $userConnexion->id();
                         $_SESSION['email'] = $userConnexion->email();
                         $_SESSION['statusUser'] = $userConnexion->status();
                     }
@@ -32,7 +32,7 @@ class Controller
                 }
                 else
                 {
-                    return 'Adresse email non reconnu';
+                    return 'Pseudo introuvable';
                 }
             }
             else
@@ -42,7 +42,7 @@ class Controller
         }
         else
         {
-            return 'L\'adresse email saisi n\'est pas valide';
+            return 'Le pseudo saisi n\'est pas valide';
         }
     }
 

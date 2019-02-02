@@ -2,7 +2,7 @@
 
 class ControllerConnect extends Controller
 {
-    public function callConnectUser($post)
+    function callConnectUser($post)
     {
         if((trim($post['email'])) && (trim($post['password'])))
         {
@@ -14,7 +14,7 @@ class ControllerConnect extends Controller
         }
         else
         {
-            return 'Adresse email et mot de passe obligatoire !';
+            return 'Pseudo et mot de passe obligatoire !';
         }
     }
 

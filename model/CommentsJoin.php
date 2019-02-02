@@ -1,12 +1,12 @@
-<?php
+<?php 
 
-class CommentsJoin extends Hydrator
+class CommentsJoin extends Hydrator 
 {
     private $_idComment;
-    private $_creationDateAddComment;
+    private $_creationDateComment;
     private $_contentComment;
     private $_alertComment;
-    private $_mailUser;
+    private $_emailUser;
     private $_titlePost;
     private $_postId;
 
@@ -26,7 +26,7 @@ class CommentsJoin extends Hydrator
         }
     }
 
-    public function setCreationDateAddComment($creationDateAddComment) { $this->_creationDateAddComment = $creationDateAddComment; }
+    public function setCreationDateComment($creationDateComment) { $this->_creationDateComment = $creationDateComment; }
     public function setContentComment($contentComment)
     {
         if(!is_string($contentComment))
@@ -39,7 +39,7 @@ class CommentsJoin extends Hydrator
     }
 
     public function setAlertComment($alertComment) { $this->_alertComment = $alertComment; }
-    public function setMailUser($mailUser) { $this->_mailUser = $mailUser; }
+    public function setEmailUser($emailUser) { $this->_emailUser = $emailUser; }
 
     public function setTitlePost($titlePost)
     {
@@ -52,22 +52,22 @@ class CommentsJoin extends Hydrator
         $this->_titlePost = $titlePost;
     }
 
-    public function setIdPost($idPost)
+    public function setPostId($postId)
     {
-        $idPost = (int) $idPost; 
-        if($idPost > 0)
+        $postId = (int) $postId; 
+        if($postId > 0)
         {
-            $this->_idPost = $idPost;
+            $this->_postId = $postId;
         }
     }
 
     // GETTER
 
     public function idComment() { return $this->_idComment; }
-    public function creationDateAddComment() { return $this->_creationDateAddComment; }
+    public function creationDateComment() { return $this->_creationDateComment; }
     public function contentComment() { return $this->_contentComment; }
     public function alertComment() { return $this->_alertComment; }
-    public function mailUser() { return $this->_mailUser; }
+    public function emailUser() { return $this->emailUser; }
     public function titlePost() { return $this->_titlePost; }
     public function postId() { return $this->_postId; }
 }

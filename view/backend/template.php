@@ -38,17 +38,17 @@
  <div class="collapse navbar-collapse" id="navbarCollapse">
 
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item active"><a class="nav-link" href="index.php">Accueil</a></li>
+                <li><a class="nav-link" href="index.php">Accueil</a></li>
 
-                <ul class="nav navbar-nav">
-
-                        <li class="nav-item active"><a class="nav-link" href="admin.php">Administration</a></li> 
-
-                        <li class="nav-item active"><a class="nav-link" href="index.php?action=deconnect"</a></li> 
-
-                    <li class="nav-item active"><a class="nav-link" href="index.php?action=connexion"">Connexion</a></li>
-                    <li class="nav-item active"><a class="nav-link" href="index.php?action=register"">Inscription</a></li>
-
+                <ul class="navbar-nav mr-auto">
+                <?php if(isset($_SESSION['email']))
+                {
+                ?>
+                    <li><a class="nav-link" href="index.php?action=deconnect">Déconnexion</a></li> <!-- Lien de deconnexion -->
+                </ul>
+                <?php
+                }
+                ?>
                 </ul>
             </ul>
         </nav>

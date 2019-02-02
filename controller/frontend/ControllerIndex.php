@@ -9,7 +9,7 @@ class ControllerIndex
         $this->setPostManager(new PostManager());
     }
 
-    public function callGetPosts()
+    function callGetPosts()
     {
         $posts = $this->postManager()->getListPosts();
         for($i = 0; $i < count($posts); $i++)

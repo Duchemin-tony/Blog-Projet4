@@ -1,4 +1,5 @@
 <?php
+
 class Manager
 {
     const HOST_NAME = 'localhost:8889';

@@ -25,22 +25,22 @@ class ControllerDisplayPost extends Controller
                 'email' => htmlspecialchars($email),
                 'password' => htmlspecialchars($password)
             ];
-            $userConnection = parent::connect($dataUser);
-            if($userConnection != null)
+            $userConnexion = parent::connect($dataUser);
+            if($userConnexion != null)
             {
-                if($userConnection == 'Adresse email non reconnu')
+                if($userConnexion == 'Pseudo non reconnu')
                 {
                     parent::register($dataUser);
-                    $this->addComment($comment, $postId, $_SESSION['id_user']);
+                    $this->addComment($comment, $postId, $_SESSION['idUser']);
                 }
                 else
                 {
-                    return $userConnection;
+                    return $userConnexion;
                 }
             }
             else
             {
-                $this->addComment($comment, $postId, $_SESSION['id_user']);
+                $this->addComment($comment, $postId, $_SESSION['idUser']);
             }
         }
         else
@@ -49,15 +49,15 @@ class ControllerDisplayPost extends Controller
         }
     }
 
-    public function addComment($contentComment, $postId, $id_user)
+    public function addComment($contentComment, $postId, $idUser)
     {
         date_default_timezone_set('Europe/Monaco');
         $dateTime = date("Y-m-d H:i:s");
         $dataComment = [
             'content' => $contentComment,
-            'creation_date' => $dateTime,
-            'post-id' => $postId,
-            'id_user' => $idUser
+            'creationDate' => $dateTime,
+            'postId' => $postId,
+            'idUser' => $idUser
         ];
         $comment = new Comment($dataComment);
         $this->commentManager()->add($comment);
@@ -75,10 +75,11 @@ class ControllerDisplayPost extends Controller
         ));
     }
 
-
     public function setPostManager($postManager) { $this->_postManager = $postManager; }
+
+    public function postManager() { return $this->_postManager; }
+
     public function setCommentManager($commentManager) { $this->_commentManager = $commentManager; }
 
-    public function PostManager() { return $this->_postManager; }
     public function commentManager() { return $this->_commentManager; }
 }

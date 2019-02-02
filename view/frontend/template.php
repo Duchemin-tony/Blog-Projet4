@@ -26,10 +26,11 @@
     </style>
 
   </head>
+  
   <body>
 
 <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-  <a class="navbar-brand" href="#">Billet simple pour l'Alaska</a>
+  <a class="navbar-brand" href="index.php">Billet simple pour l'Alaska</a>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -38,17 +39,29 @@
  <div class="collapse navbar-collapse" id="navbarCollapse">
 
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item active"><a class="nav-link" href="index.php">Accueil</a></li>
+                <li><a class="nav-link" href="index.php">Accueil</a></li>
 
                 <ul class="nav navbar-nav">
-
-                        <li class="nav-item active"><a class="nav-link" href="admin.php">Administration</a></li> 
-
-                        <li class="nav-item active"><a class="nav-link" href="index.php?action=deconnect"</a></li> 
-
-                    <li class="nav-item active"><a class="nav-link" href="index.php?action=connexion"">Connexion</a></li>
-                    <li class="nav-item active"><a class="nav-link" href="index.php?action=register"">Inscription</a></li>
-
+                <?php if(isset($_SESSION['email']))
+                {
+                    if($_SESSION['statusUser'] == 'administrateur')
+                    {
+                    ?>
+                        <li><a class="nav-link" href="admin.php">Administration</a></li> 
+                    <?php
+                    }
+                    ?>
+                        <li><a class="nav-link" href="index.php?action=deconnect">Déconnexion</a></li> 
+                    <?php
+                }
+                else
+                {
+                ?>
+                    <li><a class="nav-link" href="index.php?action=connexion"">Connexion</a></li>
+                    <li><a class="nav-link" href="index.php?action=register"">Inscription</a></li>
+                <?php
+                }
+                ?>
                 </ul>
             </ul>
         </nav>
@@ -56,7 +69,7 @@
 <main role="main" class="container">
 
   <div class="starter-template" style="padding-top: 100px;">
-  	<?= $content ?>
+    <?= $content ?>
   </div>
 
 </main>

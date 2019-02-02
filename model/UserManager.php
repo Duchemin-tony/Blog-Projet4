@@ -18,7 +18,7 @@ class UserManager extends Manager
         $bdd = parent::bddConnect();
         $request = $bdd->prepare('SELECT id, email, password, status FROM users WHERE email = :email');
         $request->bindValue(':email', $user->email());
-        $request->execute() or die(print_r($request->errorInfo(), TRUE)); // or die permet d'afficher les erreurs de MySql
+        $request->execute() or die(print_r($request->errorInfo(), TRUE));
         $dataConnexion = $request->fetch();
         if($dataConnexion)
         {
