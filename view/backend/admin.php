@@ -1,93 +1,52 @@
-<?php
+<?php $this->setTitle('Administration - Billet simple pour l\'Alaska'); ?>
 
-$this->setTitle('Administration - Billet simple pour l\'Alaska');
-?>
+<a href="admin.php?action=post"><button type="submit" class="btn btn-success">Ajouter un article</button></a>
 
-<a href="admin.php?action=post">Ajouter un article</a>
 
-<div> 
-
-    <?php
-    if($posts != null)
-    {
-        if($nbrCommentAlert != 0)
-        {
-        ?>
+    <?php if($posts != null) { if($nbrCommentAlert != 0) { ?>
         <div>
-            <form action="admin.php" method="get">
-                <?php
-                if($nbrCommentAlert == 1) 
-                {
-                ?>
+            <form action="admin.php" method="get" style="padding-bottom: 50px; padding-top: 50px;">
+                <?php if($nbrCommentAlert == 1) { ?>
                     <p><?= $nbrCommentAlert; ?> commentaire a était signaler</p>
                     <input type="hidden" name="action" value="comment"> 
                     <input type="hidden" name="alertComments" value="on">
-                    <input type="submit" class="linkPage" value="Visualiser le commentaire">
-                <?php
-                }
-                else 
-                {
-                ?>
+                    <button type="submit" class="btn btn-primary">Visualiser le commentaire</button>
+                <?php } else { ?>
                     <p><?= $nbrCommentAlert; ?> commentaires ont était signaler</p>
                     <input type="hidden" name="action" value="comment"> 
                     <input type="hidden" name="alertComments" value="on">
-                    <input type="submit" value="Visualiser les commentaires">
-                <?php
-                }
-                ?>
+                    <button type="submit" class="btn btn-primary">Visualiser les commentaires</button>
+                <?php } ?>
             </form>
         </div>
-        <?php
-        }
-        ?>
+        <?php } ?>
 
-    <div> 
+    <table class="table">
+    <thead>
+    <tr>
+        <td>Titre</td>
+        <td>Date</td>
 
-        <form method="post" action="admin.php?action=delete">
+        <td>Commentaires</td>
+        <td>Actions</td>
+    </tr>
+    </thead>
+    <tbody>
+        <?php for($i = 0; $i < count($posts); $i++): ?>
+        <tr>
+            <td><a href="admin.php?action=post&change=on&postId=<?= $posts[$i]->id(); ?>"><?= $posts[$i]->title(); ?></a></td>
+            <td><?= $posts[$i]->creationDate(); ?> </td>
+ 
+            <td><?= $nbrComments[$i]; ?> Commentaire(s)</td>
+            <td>
+                <a class="btn btn-warning" href="admin.php?action=post&change=on&postId=<?= $posts[$i]->id(); ?>">Modifier</a>
+                <a class="btn btn-danger" href="admin.php?action=delete&deletePost=on&postId=<?= $posts[$i]->id(); ?>">Supprimer</a>
+                <a class="btn btn-primary" href="admin.php?action=comment&comment=on&postId=<?= $posts[$i]->id(); ?>">Afficher commentaire(s)</a>
+            </td>
+        </tr>
+        <?php endfor; ?>
+    </tbody>
+</table>
+<?php } else { echo 'Votre Blog ne contient encore aucun article'; } ?>
 
-            <div>
 
-                <div>
-                    <?php
-                    for($i = 0; $i < count($posts); $i++) :
-                    ?>
-                        <div>
-
-                            <div>
-                                <input type="checkbox" name="postId[<?= $i; ?>]" id="postId" value="<?= $posts[$i]->id(); ?>">
-                            </div>
-
-                            <div>
-                                <a href="admin.php?action=post&change=on&postId=<?= $posts[$i]->id(); ?>"><?= $posts[$i]->title(); ?></a>
-                                <p><?= $posts[$i]->content(); ?></p>
-                                <li><a href="admin.php?action=post&change=on&postId=<?= $posts[$i]->id(); ?>">Modifier</a></li>
-                                <li><a href="admin.php?action=delete&deletePost=on&postId=<?= $posts[$i]->id(); ?>">Supprimer</a></li>
-                                <li><a href="admin.php?action=comment&comment=on&postId=<?= $posts[$i]->id(); ?>">Afficher commentaire(s)</a></li>
-                            </div>
-                            <div>
-                                <?= $posts[$i]->creationDate(); ?> 
-                            </div>
-                            <div>
-                                <?= $nbrComments[$i]; ?> Commentaire(s)
-                            </div>
-                        </div>
-
-                    <?php endfor; ?> 
-
-                </div> 
-            </div> 
-
-            <input type="hidden" name="deletePost" value="on"> 
-            <input type="submit" value="Supprimer"> 
-        </form>
-
-    </div> 
-    <?php
-    }
-    else
-    {
-        echo 'Votre Blog ne contient encore aucun article';
-    }
-    ?>
-
-</div>

@@ -1,9 +1,18 @@
 <?php $this->setTitle('Billet simple pour l\'Alaska'); ?>
 
+
+<div class="container">
+    <div class="jumbotron">
+        <h1> Bienvenue sur le blog de Jean Forteroche</h1>
+        
+    </div>
+</div>
+
+
+
     <div class="album py-5 bg-light">
         <div class="container ">
-            <h1 class="title-publication">Dernières publications :</h1>
-
+            <h2 class="title-publication">Dernières publications :</h2>
             <div class="row">
             <?php
                 for($i = 0; $i < count($posts); $i++) :

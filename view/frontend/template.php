@@ -8,8 +8,11 @@
     <meta name="generator" content="Jekyll v3.8.5">
     <title><?= $this->title(); ?></title>
 
+    <link rel="stylesheet" href="public/css/style.css">
+
     <!-- Bootstrap core CSS -->
 <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
 
 
     <style>
@@ -28,7 +31,6 @@
   </head>
   
   <body>
-
 <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
   <a class="navbar-brand" href="index.php">Billet simple pour l'Alaska</a>
 
@@ -71,6 +73,12 @@
   <div class="starter-template" style="padding-top: 100px;">
     <?= $content ?>
   </div>
+
+     
+                <div class="reserved-bot">
+                    <p class="text-center">Copyright © 2019 Blog de Jean Forteroche - Tous droits réservés - Réalisé par Duchemin Tony</p>
+                </div>
+
 
 </main>
 </body>

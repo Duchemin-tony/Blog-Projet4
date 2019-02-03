@@ -1,4 +1,4 @@
-<a href="admin.php">Voir la liste des articles</a>
+<a href="admin.php"><button class="btn btn-primary">Voir la liste des articles</button></a>
 
 <div>
     <h1><?= $titlePage['titleSection']; ?></h1>
@@ -29,12 +29,12 @@
                 else
                 {
                 ?>
-                    <input type="hidden" name="addPost" value="add">
+                    <input class="btn btn-success" type="hidden" name="addPost" value="add">
                 <?php
                 }
                 ?>
 
-                <input type="submit" value="<?= $titlePage['buttonSend']; ?>"> 
+                <input class="btn btn-success" type="submit" value="<?= $titlePage['buttonSend']; ?>"> 
             </p>
         </form>
     </div>

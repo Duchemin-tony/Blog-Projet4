@@ -17,7 +17,7 @@ class ControllerPost
             $titlePage['titleSection'] = 'Modification d\'un article existant'; 
             $titlePage['titlePost'] = 'Titre d\'article :'; 
             $titlePage['labelContentPost'] = 'Contenu de l\'article :'; 
-            $titlePage['buttonSend'] = 'Modifier l\'article :'; 
+            $titlePage['buttonSend'] = 'Modifier l\'article '; 
             $postId = intval($get['postId']);
             if($postId != 0)
             {

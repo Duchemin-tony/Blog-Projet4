@@ -1,26 +1,22 @@
 <?php $this->setTitle($post->title() . ' - Billet simple pour l\'Alaska'); ?>
 
-<h1>Billet simple pour l'Alaska</h1>
-<p><a href="index.php"><button>Retour à la liste des articles</button></a></p>
 
-<div>
-    <h2>
+<p><a href="index.php"><button class="btn btn-primary">Retour à la liste des articles</button></a></p>
+
+<div class="jumbotron">
+    <h1>
         <?= $post->title(); ?>
-
-        <em>le <?= $post->creationDate(); ?></em>
-
+    </h1>
+            <em> Ajouté le <?= $post->creationDate(); ?></em>
         <?php if($post->modifDate() != NULL) { ?> 
-            <em>Modifié le :<?= $post->modifDate(); ?></em> 
+            <em> Modifié le:<?= $post->modifDate(); ?></em> 
         <?php } ?>
-
-    </h2>
-
     <?= $post->content(); ?>
-
 </div>
 
-<h3>Commentaires</h3>
 
+<div>
+<h2>Commentaires:</h2>
         <?php
         if(count($commentsPost) != 0)
         {
@@ -41,37 +37,38 @@
                     <?php
                         }
                     ?>
-                        <p>
-                            <p>Poster par : <span class="strong"><?= $commentsPost[$i]->emailUser(); ?></span></p>
-                            <p>Le : <span class="strong"><?= $commentsPost[$i]->creationDateComment(); ?></span></p>
-                        </p>
 
-                        <div>
-                            <?= $commentsPost[$i]->contentComment(); ?>
-                        </div>
-
+    <div class='container'>
+         <div class="media comment-box">
+            <div class="media-left">
+                <a href="#">
+                    <img class="img-responsive user-photo" src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png">
+                </a>
+            </div>
+            <div class="media-body">
+                <h4 class="media-heading"><?= $commentsPost[$i]->emailUser(); ?> Posté le <?= $commentsPost[$i]->creationDateComment(); ?></h4>
+                <p><?= $commentsPost[$i]->contentComment(); ?></p>
                         <form action="index.php?action=post&id=<?= $_GET['id']; ?>" method="post">
                             <p>
                                 <input type="hidden" name="idComment" value="<?= $commentsPost[$i]->idComment(); ?>">
                                 <input type="hidden" name="reportComment" value="reportComment">
                                 <?php
-                                if($commentsPost[$i]->alertComment() == 1)
-                                {
+                                if($commentsPost[$i]->alertComment() == 1) {
                                 ?>
-                                    <input type="submit" value="Commentaire signaler" disabled>
+                                    <button type="submit" class="btn btn-danger" disabled>Commentaire signaler</button>
                                 <?php
                                 }
-                                else
-                                {
+                                else {
                                 ?>
-                                    <input type="submit" value="Signaler le commentaire">
+                                    <button type="submit" class="btn btn-danger">Signaler</button>
                                 <?php
                                 }
                                 ?>
                             </p>
                         </form>
-
-                    </div>
+            </div>
+        </div>
+    </div>
 
                 <?php endfor; ?>
             </div>
@@ -82,16 +79,15 @@
             echo 'Aucun commentaire n\'a était poster sur cette article';
         }
         ?>
+    </div>
 
-    </article>
-    <article>
-        <h1>Laisser un commentaire :</h1>
+
+    <div class="jumbotron">
+        <h2>Laisser un commentaire :</h2>
         <form action="index.php?action=post&id=<?= $_GET['id']; ?>" method="post">
 
             <?php if(isset($_SESSION['errorPostComment'])) { echo '<p class="errorBlog">' . $_SESSION['errorPostComment'] . '</p>'; } ?>
-
             <div>
-
             <?php
             if(isset($_SESSION['email']))
             {
@@ -128,7 +124,7 @@
             <p>
                 <input type="hidden" name="postId" value="<?php echo $_GET['id']; ?>">
                 <input type="hidden" name="publicationComment" value="publicationComment">
-                <input type="submit" value="Envoyer le commentaire">
+                <button type="submit" class="btn btn-success">Ajouter commentaire</button>
             </p>
         </form>
-    </article> 
+    </div>

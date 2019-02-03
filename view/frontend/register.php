@@ -7,7 +7,7 @@ if(isset($_SESSION['idUser']))
 $this->setTitle('Inscription - Billet simple pour l\'Alaska'); ?>
 
 
-<body class="text-center">
+<div class="text-center">
   <h1 class="h3 mb-3 font-weight-normal">INSCRIPTION</h1>
   
     <form method="post" action="index.php?action=register">
@@ -31,7 +31,5 @@ $this->setTitle('Inscription - Billet simple pour l\'Alaska'); ?>
 
   <button class="btn btn-lg btn-primary btn-block" type="submit" >S'inscrire</button>
 
-  <p class="mt-5 mb-3 text-muted">&copy; 2019</p>
-
 </form>
-</body>
+</div>

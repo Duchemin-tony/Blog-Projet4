@@ -1,4 +1,4 @@
-<?php
+<?php 
 if(isset($_SESSION['idUser']))
 {
     // Redirige le membre vers index.php
@@ -8,7 +8,7 @@ if(isset($_SESSION['idUser']))
 $this->setTitle('Connexion - Billet simple pour l\'Alaska'); ?>
 
 
-<body class="text-center">
+<div class="text-center">
     <form method="post" action="index.php?action=connexion">
 
       <h1 class="h3 mb-3 font-weight-normal">Connexion</h1>
@@ -23,6 +23,5 @@ $this->setTitle('Connexion - Billet simple pour l\'Alaska'); ?>
 
   <button class="btn btn-lg btn-primary btn-block" type="submit">Connexion</button>
 
-  <p class="mt-5 mb-3 text-muted">&copy; 2019</p>
 </form>
-</body>
+</div>
