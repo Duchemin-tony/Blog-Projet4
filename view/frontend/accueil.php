@@ -4,7 +4,6 @@
 <div class="container">
     <div class="jumbotron">
         <h1> Bienvenue sur le blog de Jean Forteroche</h1>
-        
     </div>
 </div>
 
@@ -22,7 +21,7 @@
                         <img class="card-img-top" src="public/alaska.jpg" alt="Card image cap">
                         <div class="card-body">
                             <h5 class="card-title"><?= $posts[$i]->title(); ?></h5>
-                            <p class="card-text"><?= nl2br(substr($posts[$i]->content(), 0, 400)); ?></p>
+                            <p class="card-text"><?= nl2br(substr($posts[$i]->content(), 0, 500)); ?> ...</p>
                             <div class="d-flex justify-content-between align-items-center">
                                 <a class="btn btn-primary" href="index.php?action=post&id=<?= $posts[$i]->id(); ?>" role="button">Voir la suite</a>
                                 <small class="text-muted"><?= $posts[$i]->creationDate(); ?></small>

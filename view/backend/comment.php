@@ -9,7 +9,7 @@ if(isset($comments[0])) {
 
 <a href="admin.php"><button class="btn btn-primary">Voir la liste des articles</button></a>
 
-<div>
+<div style="padding-bottom: 50px; padding-top: 50px;">
     <h1><?= $titleSection; ?></h1>
 
     <table class="table">

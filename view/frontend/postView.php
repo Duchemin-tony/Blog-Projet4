@@ -9,7 +9,7 @@
     </h1>
             <em> Ajouté le <?= $post->creationDate(); ?></em>
         <?php if($post->modifDate() != NULL) { ?> 
-            <em> Modifié le:<?= $post->modifDate(); ?></em> 
+            <em> Modifié le : <?= $post->modifDate(); ?></em><br>
         <?php } ?>
     <?= $post->content(); ?>
 </div>
@@ -47,9 +47,8 @@
             </div>
             <div class="media-body">
                 <h4 class="media-heading"><?= $commentsPost[$i]->emailUser(); ?> Posté le <?= $commentsPost[$i]->creationDateComment(); ?></h4>
-                <p><?= $commentsPost[$i]->contentComment(); ?></p>
+                <?= $commentsPost[$i]->contentComment(); ?>
                         <form action="index.php?action=post&id=<?= $_GET['id']; ?>" method="post">
-                            <p>
                                 <input type="hidden" name="idComment" value="<?= $commentsPost[$i]->idComment(); ?>">
                                 <input type="hidden" name="reportComment" value="reportComment">
                                 <?php
@@ -64,7 +63,6 @@
                                 <?php
                                 }
                                 ?>
-                            </p>
                         </form>
             </div>
         </div>

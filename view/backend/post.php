@@ -1,6 +1,6 @@
 <a href="admin.php"><button class="btn btn-primary">Voir la liste des articles</button></a>
 
-<div>
+<div style="padding-bottom: 50px; padding-top: 50px;">
     <h1><?= $titlePage['titleSection']; ?></h1>
 
     <div>
@@ -13,7 +13,7 @@
             </p>
             <p>
                 <label for="contentPost"><?= $titlePage['labelContentPost']; ?></label><br>
-                <textarea name="contentPost">
+                <textarea name="contentPost" id="mytextarea">
                     <?php if(isset($_GET['postId'])) { echo $post->content(); } ?>
                 </textarea>
             </p>

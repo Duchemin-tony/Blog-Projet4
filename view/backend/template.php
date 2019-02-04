@@ -9,6 +9,19 @@
     <title><?= $this->title(); ?></title>
 
     <link rel="stylesheet" href="public/css/style.css">
+    <script src="https://cloud.tinymce.com/stable/tinymce.min.js?apiKey=zf6tc4vxpu02mnmdmypo90deyyywuucah4xp5u6ta7eogxmh"></script>
+      <script type="text/javascript">
+     tinymce.init({
+        selector: 'textarea',
+        resize: "both",
+        height: 450,
+        theme: "modern",
+        branding: false,
+        plugins: "preview fullscreen textcolor colorpicker help",
+        toolbar1: "formatselect | bold italic strikethrough forecolor backcolor | link | alignleft aligncenter alignright alignjustify  | numlist bullist outdent indent  | removeformat"
+    });
+  </script>
+
 
     <!-- Bootstrap core CSS -->
 <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
@@ -31,18 +44,17 @@
   <body>
 
 <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+  <div class="container">
   <a class="navbar-brand" href="#">Billet simple pour l'Alaska</a>
 
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="" aria-controls="" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
  <div class="collapse navbar-collapse" id="navbarCollapse">
 
-            <ul class="navbar-nav mr-auto">
+            <ul class="navbar-nav ml-auto">
                 <li><a class="nav-link" href="index.php">Accueil</a></li>
-
-                <ul class="navbar-nav mr-auto">
                 <?php if(isset($_SESSION['email']))
                 {
                 ?>
@@ -51,9 +63,10 @@
                 <?php
                 }
                 ?>
-                </ul>
             </ul>
-        </nav>
+          </div>
+        </div>
+      </nav>
 
 <main role="main" class="container">
 
@@ -66,5 +79,6 @@
                 </div>
 
 </main>
+
 </body>
 </html>
