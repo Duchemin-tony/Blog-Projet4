@@ -124,9 +124,9 @@ class Router
             {
                 if($_SERVER["REQUEST_METHOD"] == "POST")
                 {
-                    if(trim($_POST['email']) && (trim($_POST['password'])))
+                    if(trim($_POST['pseudo']) && (trim($_POST['password'])))
                     {
-                        $_SESSION['errorAdmin'] = $this->ctrlAdminSec()->connectAdmin($_POST['email'], $_POST['password']);
+                        $_SESSION['errorAdmin'] = $this->ctrlAdminSec()->connectAdmin($_POST['pseudo'], $_POST['password']);
                     }
                 }
                 $this->ctrlAdminSec()->adminSec();

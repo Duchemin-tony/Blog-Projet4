@@ -8,17 +8,17 @@ class ControllerConnect extends Controller
     */
     function callConnectUser($post)
     {
-        if((trim($post['email'])) && (trim($post['password'])))
+        if((trim($post['pseudo'])) && (trim($post['password'])))
         {
             $dataUser = [
-                'email' => htmlspecialchars($post['email']),
+                'pseudo' => htmlspecialchars($post['pseudo']),
                 'password' => htmlspecialchars($post['password'])
             ];
             return parent::connect($dataUser);
         }
         else
         {
-            return 'Email et mot de passe obligatoire !';
+            return 'Pseudo et mot de passe obligatoire !';
         }
     }
 

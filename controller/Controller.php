@@ -14,7 +14,7 @@ class Controller
     */
     public function connect($dataUser)
     {
-        if(filter_var($dataUser['email'], FILTER_VALIDATE_EMAIL))
+        if(strlen($dataUser['pseudo']) >= 4)
         {
             if(strlen($dataUser['password']) >= 4)
             {
@@ -25,7 +25,7 @@ class Controller
                     if(password_verify($dataUser['password'], $userConnexion->password()))
                     {
                         $_SESSION['idUser'] = $userConnexion->id();
-                        $_SESSION['email'] = $userConnexion->email();
+                        $_SESSION['pseudo'] = $userConnexion->pseudo();
                         $_SESSION['statusUser'] = $userConnexion->status();
                     }
                     else
@@ -35,7 +35,7 @@ class Controller
                 }
                 else
                 {
-                    return 'Email non reconnu';
+                    return 'Pseudo non reconnu';
                 }
             }
             else
@@ -45,7 +45,7 @@ class Controller
         }
         else
         {
-            return 'L\'email saisi n\'est pas valide';
+            return 'Le pseudo saisi n\'est pas valide';
         }
     }
 
@@ -58,7 +58,7 @@ class Controller
         $user = new User($dataUser);
         $lastId = $this->userManager()->addUser($user);
         $_SESSION['idUser'] = $lastId;
-        $_SESSION['email'] = $user->email();
+        $_SESSION['pseudo'] = $user->pseudo();
         $_SESSION['statusUser'] = $user->status();
     }
 

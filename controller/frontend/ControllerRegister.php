@@ -8,23 +8,23 @@ class ControllerRegister extends Controller
     */
     public function registerUser($post)
     {
-        if((trim($post['email'])) && (trim($post['emailConfirm'])) && (trim($post['password'])) && (trim($post['passwordConfirm'])))
+        if((trim($post['pseudo'])) && (trim($post['pseudoConfirm'])) && (trim($post['password'])) && (trim($post['passwordConfirm'])))
         {
-            $post['email'] = htmlspecialchars($post['email']);
-            $post['emailConfirm']= htmlspecialchars($post['emailConfirm']);
+            $post['pseudo'] = htmlspecialchars($post['pseudo']);
+            $post['pseudoConfirm']= htmlspecialchars($post['pseudoConfirm']);
             $post['password'] = htmlspecialchars($post['password']);
             $post['passwordConfirm'] = htmlspecialchars($post['passwordConfirm']);
             
-            if($post['email'] == $post['emailConfirm'])
+            if($post['pseudo'] == $post['pseudoConfirm'])
             {
                 if($post['password'] == $post['passwordConfirm'])
                 {
                     $dataUser = [
-                        'email' => $post['email'],
+                        'pseudo' => $post['pseudo'],
                         'password' => $post['password']
                     ];
                     $stateRegister = parent::connect($dataUser);
-                    if($stateRegister == 'Email non reconnu')
+                    if($stateRegister == 'Pseudo non reconnu')
                     {
                         parent::register($dataUser);
                     }
@@ -40,7 +40,7 @@ class ControllerRegister extends Controller
             }
             else
             {
-                return 'Merci de confirmer votre email';
+                return 'Merci de confirmer votre pseudo';
             }
         }
         else

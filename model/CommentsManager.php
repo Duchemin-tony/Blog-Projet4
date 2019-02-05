@@ -47,7 +47,7 @@ class CommentsManager extends Manager
     {
         $bdd = parent::bddConnect();
 
-        $request = $bdd->query('SELECT com.id idComment, DATE_FORMAT(com.creationDate, \'%d-%m-%Y à %Hh%i\') AS creationDateComment, com.content contentComment, com.alert alertComment, m.email emailUser, t.title titlePost, com.postId postId FROM comments com INNER JOIN users m ON com.idUser = m.id INNER JOIN posts t ON com.postId = t.id WHERE com.alert = TRUE');
+        $request = $bdd->query('SELECT com.id idComment, DATE_FORMAT(com.creationDate, \'%d-%m-%Y à %Hh%i\') AS creationDateComment, com.content contentComment, com.alert alertComment, m.pseudo pseudoUser, t.title titlePost, com.postId postId FROM comments com INNER JOIN users m ON com.idUser = m.id INNER JOIN posts t ON com.postId = t.id WHERE com.alert = TRUE');
         $comment = $request->fetchAll();
         for($i = 0; $i < count($comment); $i++)
         {
@@ -64,7 +64,7 @@ class CommentsManager extends Manager
     {
         $bdd = parent::bddConnect();
 
-        $request = $bdd->prepare('SELECT com.id idComment, DATE_FORMAT(com.creationDate, \'%d-%m-%Y à %Hh%i\') AS creationDateComment, com.content contentComment, com.alert alertComment, m.email emailUser, t.title titlePost FROM comments com INNER JOIN users m ON com.idUser = m.id INNER JOIN posts t ON com.postId = t.id WHERE com.postId = :postId ORDER BY com.alert DESC, com.creationDate DESC');
+        $request = $bdd->prepare('SELECT com.id idComment, DATE_FORMAT(com.creationDate, \'%d-%m-%Y à %Hh%i\') AS creationDateComment, com.content contentComment, com.alert alertComment, m.pseudo pseudoUser, t.title titlePost FROM comments com INNER JOIN users m ON com.idUser = m.id INNER JOIN posts t ON com.postId = t.id WHERE com.postId = :postId ORDER BY com.alert DESC, com.creationDate DESC');
         $request->bindValue(':postId', $id, PDO::PARAM_INT);
         $request->execute() or die(print_r($request->errorInfo(), TRUE));
         $comment = $request->fetchAll();

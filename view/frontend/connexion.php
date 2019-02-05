@@ -15,8 +15,8 @@ $this->setTitle('Connexion - Billet simple pour l\'Alaska'); ?>
         
         <?php if(isset($_SESSION['errorConnect'])) { echo '<p class="errorBlog">' . $_SESSION['errorConnect'] . '</p>'; } ?>
 
-  <label for="email" class="sr-only">Pseudo</label>
-  <input type="email" id="email" name="email" class="form-control" placeholder="Pseudo" required autofocus><br>
+  <label for="pseudo" class="sr-only">Pseudo</label>
+  <input type="text" id="pseudo" name="pseudo" class="form-control" placeholder="Pseudo" required autofocus><br>
 
   <label for="password" class="sr-only">Mot de passe</label>
   <input type="password" id="password" name="password" class="form-control" placeholder="Mot de passe" required><br>

@@ -6,7 +6,7 @@ class CommentsJoin extends Hydrator
     private $_creationDateComment;
     private $_contentComment;
     private $_alertComment;
-    private $_emailUser;
+    private $_pseudoUser;
     private $_titlePost;
     private $_postId;
 
@@ -39,7 +39,7 @@ class CommentsJoin extends Hydrator
     }
 
     public function setAlertComment($alertComment) { $this->_alertComment = $alertComment; }
-    public function setEmailUser($emailUser) { $this->_emailUser = $emailUser; }
+    public function setPseudoUser($pseudoUser) { $this->_pseudoUser = $pseudoUser; }
 
     public function setTitlePost($titlePost)
     {
@@ -67,7 +67,7 @@ class CommentsJoin extends Hydrator
     public function creationDateComment() { return $this->_creationDateComment; }
     public function contentComment() { return $this->_contentComment; }
     public function alertComment() { return $this->_alertComment; }
-    public function emailUser() { return $this->_emailUser; }
+    public function pseudoUser() { return $this->_pseudoUser; }
     public function titlePost() { return $this->_titlePost; }
     public function postId() { return $this->_postId; }
 }

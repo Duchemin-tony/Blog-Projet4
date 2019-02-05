@@ -9,8 +9,8 @@ class UserManager extends Manager
     public function addUser($user)
     {
         $bdd = parent::bddConnect();
-        $request = $bdd->prepare('INSERT INTO users(email, password, status) VALUES(:email, :password, :status)');
-        $request->bindValue(':email', $user->email());
+        $request = $bdd->prepare('INSERT INTO users(pseudo, password, status) VALUES(:pseudo, :password, :status)');
+        $request->bindValue(':pseudo', $user->pseudo());
         $request->bindValue(':password', $user->password());
         $request->bindValue(':status', 'contributeur');
         $request->execute() or die(print_r($request->errorInfo(), TRUE));
@@ -23,8 +23,8 @@ class UserManager extends Manager
     public function connexionUser($user)
     {
         $bdd = parent::bddConnect();
-        $request = $bdd->prepare('SELECT id, email, password, status FROM users WHERE email = :email');
-        $request->bindValue(':email', $user->email());
+        $request = $bdd->prepare('SELECT id, pseudo, password, status FROM users WHERE pseudo = :pseudo');
+        $request->bindValue(':pseudo', $user->pseudo());
         $request->execute() or die(print_r($request->errorInfo(), TRUE));
         $dataConnexion = $request->fetch();
         if($dataConnexion)

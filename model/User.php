@@ -3,7 +3,7 @@
 class User extends Hydrator
 {
     private $_id;
-    private $_email;
+    private $_pseudo;
     private $_password;
     private $_status;
 
@@ -21,14 +21,14 @@ class User extends Hydrator
         }
     }
 
-    public function setEmail($email)
+    public function setPseudo($pseudo)
     {
-        if(!filter_var($email, FILTER_VALIDATE_EMAIL))
+        if(!strlen($pseudo) >= 4)
         {
             trigger_error('Le pseudo saisi n\'est pas valide', E_USER_WARNING);
             return;
         }
-        $this->_email = $email;
+        $this->_pseudo = $pseudo;
     }
 
     public function setPassword($password)
@@ -46,9 +46,9 @@ class User extends Hydrator
         return $this->_id;
     }
 
-    public function email()
+    public function pseudo()
     {
-        return $this->_email;
+        return $this->_pseudo;
     }
 
     public function password()

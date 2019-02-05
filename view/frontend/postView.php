@@ -46,7 +46,7 @@
                 </a>
             </div>
             <div class="media-body">
-                <h4 class="media-heading"><?= $commentsPost[$i]->emailUser(); ?> Posté le <?= $commentsPost[$i]->creationDateComment(); ?></h4>
+                <h4 class="media-heading"><?= $commentsPost[$i]->pseudoUser(); ?> Posté le <?= $commentsPost[$i]->creationDateComment(); ?></h4>
                 <?= $commentsPost[$i]->contentComment(); ?>
                         <form action="index.php?action=post&id=<?= $_GET['id']; ?>" method="post">
                                 <input type="hidden" name="idComment" value="<?= $commentsPost[$i]->idComment(); ?>">
@@ -87,13 +87,13 @@
             <?php if(isset($_SESSION['errorPostComment'])) { echo '<p class="errorBlog">' . $_SESSION['errorPostComment'] . '</p>'; } ?>
             <div>
             <?php
-            if(isset($_SESSION['email']))
+            if(isset($_SESSION['pseudo']))
             {
             ?>
                 <p>
-                    <label for="email">Votre email:</label>
-                    <input type="email" name="email" id="email" value="<?= $_SESSION['email']; ?>" disabled>
-                    <input type="hidden" name="email" id="email" value="<?= $_SESSION['email']; ?>"> 
+                    <label for="pseudo">Votre pseudo:</label>
+                    <input type="text" name="pseudo" id="pseudo" value="<?= $_SESSION['pseudo']; ?>" disabled>
+                    <input type="hidden" name="pseudo" id="pseudo" value="<?= $_SESSION['pseudo']; ?>"> 
                 </p>
             <?php
             }
@@ -101,8 +101,8 @@
             {
             ?>
                 <p>
-                    <label for="email">Votre email:</label>
-                    <input type="email" name="email" id="email">
+                    <label for="pseudo">Votre pseudo:</label>
+                    <input type="text" name="pseudo" id="pseudo">
                 </p>
                 <p>
                     <label for="password">Mot de passe :</label>

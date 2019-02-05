@@ -7,17 +7,17 @@ class ControllerAdminSec extends Controller
     */
     public function autorisationEnter($sessionUser)
     {
-        if(isset($sessionUser['idUser']) && (isset($sessionUser['email'])) && (isset($sessionUser['statusUser'])))
+        if(isset($sessionUser['idUser']) && (isset($sessionUser['pseudo'])) && (isset($sessionUser['statusUser'])))
         {
             $dataUser = [
                 'id' => $sessionUser['idUser'],
-                'email' => $sessionUser['email'],
+                'pseudo' => $sessionUser['pseudo'],
                 'status' => $sessionUser['statusUser']
             ];
 
             $user = new User($dataUser);
             $userConnexion = $this->userManager()->connexionUser($user);
-            if(($userConnexion->id() == $dataUser['id']) && ($userConnexion->email() == $dataUser['email']) && ($userConnexion->status() == $dataUser['status']))
+            if(($userConnexion->id() == $dataUser['id']) && ($userConnexion->pseudo() == $dataUser['pseudo']) && ($userConnexion->status() == $dataUser['status']))
             {
                 return TRUE;
             }
@@ -29,10 +29,10 @@ class ControllerAdminSec extends Controller
     /**
     * Vérifie la connexion à l'administration 
     */
-    public function connectAdmin($email, $password)
+    public function connectAdmin($pseudo, $password)
     {
         $dataUser = [
-            'email' => htmlspecialchars($email),
+            'pseudo' => htmlspecialchars($pseudo),
             'password' => htmlspecialchars($password)
         ];
         $userConnexion = parent::connect($dataUser);

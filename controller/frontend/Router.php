@@ -60,12 +60,12 @@ class Router
                             }
                             else if(isset($_POST['publicationComment']) && ($_POST['publicationComment'] == 'publicationComment')) 
                             {
-                                if(isset($_SESSION['email']) && (isset($_SESSION['idUser'])))
+                                if(isset($_SESSION['pseudo']) && (isset($_SESSION['idUser'])))
                                 {
                                     $this->ctrlDisplayPost()->addComment($_POST['comment'], $_POST['postId'], $_SESSION['idUser']);
                                 }
                                 else {
-                                    $_SESSION['errorPostComment'] = $this->ctrlDisplayPost()->addUserComment($_POST['postId'], $_POST['email'], $_POST['password'], $_POST['comment']);
+                                    $_SESSION['errorPostComment'] = $this->ctrlDisplayPost()->addUserComment($_POST['postId'], $_POST['pseudo'], $_POST['password'], $_POST['comment']);
                                 }
                             }
                         }

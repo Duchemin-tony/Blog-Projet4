@@ -21,18 +21,18 @@ class ControllerDisplayPost extends Controller
     /**
     * Permet l'inscription d'un membre ou sa connexion à l'ajout d'un Com
     */
-    public function addUserComment($postId, $email, $password, $comment)
+    public function addUserComment($postId, $pseudo, $password, $comment)
     {
-        if(isset($postId) && (trim($email)) && (trim($password)) && (trim($comment)))
+        if(isset($postId) && (trim($pseudo)) && (trim($password)) && (trim($comment)))
         {
             $dataUser = [
-                'email' => htmlspecialchars($email),
+                'pseudo' => htmlspecialchars($pseudo),
                 'password' => htmlspecialchars($password)
             ];
             $userConnexion = parent::connect($dataUser);
             if($userConnexion != null)
             {
-                if($userConnexion == 'Email non reconnu')
+                if($userConnexion == 'Pseudo non reconnu')
                 {
                     parent::register($dataUser);
                     $this->addComment($comment, $postId, $_SESSION['idUser']);

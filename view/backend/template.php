@@ -55,7 +55,7 @@
 
             <ul class="navbar-nav ml-auto">
                 <li><a class="nav-link" href="index.php">Accueil</a></li>
-                <?php if(isset($_SESSION['email']))
+                <?php if(isset($_SESSION['pseudo']))
                 {
                 ?>
                     <li><a class="nav-link" href="index.php?action=deconnect">Déconnexion</a></li> <!-- Lien de deconnexion -->

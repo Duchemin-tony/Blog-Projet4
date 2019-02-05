@@ -13,12 +13,12 @@ $this->setTitle('Inscription - Billet simple pour l\'Alaska'); ?>
     <form method="post" action="index.php?action=register">
   <?php if(isset($_SESSION['errorRegister'])) { echo '<p class="errorBlog">' . $_SESSION['errorRegister'] . '</p>'; } ?>
 
-  <label for="email" class="sr-only">Saisissez un email</label>
-  <input type="email" id="email" name="email" class="form-control" placeholder="Saisissez un email" <?php if(isset($msgRegister)) { echo 'value='.$_POST['email']; } ?>>
+  <label for="pseudo" class="sr-only">Saisissez un pseudo</label>
+  <input type="text" id="pseudo" name="pseudo" class="form-control" placeholder="Saisissez un pseudo" <?php if(isset($msgRegister)) { echo 'value='.$_POST['pseudo']; } ?>>
   <br>
 
-  <label for="emailConfirm" class="sr-only">Confirmer votre email</label>
-  <input type="email" id="emailConfirm" name="emailConfirm" class="form-control" placeholder="Confirmer votre email" <?php if(isset($msgRegister)) { echo 'value='.$_POST['emailConfirm']; } ?>>
+  <label for="pseudoConfirm" class="sr-only">Confirmer votre pseudo</label>
+  <input type="text" id="pseudoConfirm" name="pseudoConfirm" class="form-control" placeholder="Confirmer votre pseudo" <?php if(isset($msgRegister)) { echo 'value='.$_POST['pseudoConfirm']; } ?>>
   <br>
 
   <label for="password" class="sr-only">Mot de passe</label>

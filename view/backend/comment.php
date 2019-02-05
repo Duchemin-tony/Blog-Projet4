@@ -27,7 +27,7 @@ if(isset($comments[0])) {
                 if(isset($_GET['postId'])) { $postId = $_GET['postId']; } else { $postId = $comments[$i]->postId(); }
         ?>
         <tr <?php if($comments[$i]->alertComment()) { ?><?php } else { ?><?php } ?>>
-            <td><?= $comments[$i]->emailUser(); ?></td>
+            <td><?= $comments[$i]->pseudoUser(); ?></td>
             <td><?= $comments[$i]->creationDateComment(); ?></td>
             <td class="content"><?= $comments[$i]->contentComment(); ?></td>
             <td>
