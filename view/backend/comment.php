@@ -17,7 +17,7 @@ if(isset($comments[0])) {
     <tr>
         <td>Auteur</td>
         <td>Date</td>
-        <td>Contenu</td>
+        <td class="content">Contenu</td>
         <td>Actions</td>
     </tr>
     </thead>
@@ -29,7 +29,7 @@ if(isset($comments[0])) {
         <tr <?php if($comments[$i]->alertComment()) { ?><?php } else { ?><?php } ?>>
             <td><?= $comments[$i]->emailUser(); ?></td>
             <td><?= $comments[$i]->creationDateComment(); ?></td>
-            <td><?= $comments[$i]->contentComment(); ?></td>
+            <td class="content"><?= $comments[$i]->contentComment(); ?></td>
             <td>
                 <a class="btn btn-danger" href="admin.php?action=delete&deleteComment=on&idComment=<?= $comments[$i]->idComment(); ?>">Supprimer</a>
                 <a class="btn btn-primary" href="index.php?action=post&id=<?= $postId; ?>" target=_blank>Voir l'article</a>

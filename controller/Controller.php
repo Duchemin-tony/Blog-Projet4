@@ -9,6 +9,9 @@ class Controller
         $this->setUserManager(new UserManager());
     }
 
+    /**
+    * Permet la déconnexion d'un membre
+    */
     public function connect($dataUser)
     {
         if(filter_var($dataUser['email'], FILTER_VALIDATE_EMAIL))
@@ -46,6 +49,9 @@ class Controller
         }
     }
 
+    /**
+    * Permet l'inscription d'un membre
+    */
     public function register($dataUser)
     {
         $dataUser['password'] = password_hash($dataUser['password'], PASSWORD_DEFAULT);

@@ -81,7 +81,7 @@
 
 
     <div class="jumbotron">
-        <h2>Laisser un commentaire :</h2>
+        <h2>Laisser un commentaire:</h2>
         <form action="index.php?action=post&id=<?= $_GET['id']; ?>" method="post">
 
             <?php if(isset($_SESSION['errorPostComment'])) { echo '<p class="errorBlog">' . $_SESSION['errorPostComment'] . '</p>'; } ?>
@@ -115,7 +115,7 @@
             </div>
             <div>
                 <p>
-                    <label for="comment">Votre commentaire :</label><br>
+                    <label for="comment">Votre commentaire:</label><br>
                     <textarea name="comment"></textarea>
                 </p>
             </div>

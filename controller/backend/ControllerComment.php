@@ -9,6 +9,9 @@ class ControllerComment
         $this->setCommentManager(new CommentsManager()); 
     }
 
+    /**
+    * 
+    */
     public function decisionComment($get)
     {
         if(isset($get['approb']) && ($get['approb'] == 'on')) 
@@ -25,6 +28,9 @@ class ControllerComment
         }
     }
 
+    /**
+    * Affiche les commentaires d'un article
+    */
     private function displayCommentsPost($get)
     {
         $get['postId'] = intval($get['postId']);
@@ -55,6 +61,9 @@ class ControllerComment
         }
     }
 
+    /**
+    * Affiche les commentaires signalé
+    */
     private function displayCommentsSignal()
     {
         $comments = $this->commentManager()->getListCommentsAlert();
@@ -77,6 +86,9 @@ class ControllerComment
         ));
     }
 
+    /**
+    * Permet d'approuver un commentaire
+    */
     private function approbComment($get)
     {
         $get['id'] = intval($get['id']);
@@ -103,6 +115,9 @@ class ControllerComment
         }
     }
 
+    /**
+    * Supprime un Com
+    */
     public function deleteComment($idComment)
     {
         $this->commentManager()->delete($idComment);

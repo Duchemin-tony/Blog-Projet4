@@ -1,14 +1,14 @@
-
-
+ 
 /* ----- Post Comment ----- */
 
 /* CSS Test begin */
 .comment-box {
-    margin-top: 30px !important;
+    margin-top: 50px !important;
+    margin-bottom: 50px;
 }
 /* CSS Test end */
 .comment-box {
-	width: 50%;
+	width: 80%;
 }
 
 .comment-box img {
@@ -54,7 +54,16 @@
 	padding-bottom: 10px;
 	background-color: #FFFFFF;
 	margin-top: 20px;
-	margin-left: -20px;
-	margin-right: -20px;
+	margin-left: 0px;
+	margin-right: 0px;
 }
 
+@media all and (max-width: 480px) {
+    .td-comment, .td-date {
+        display: none;
+    }
+
+    .content {
+        display: none;
+    }
+}

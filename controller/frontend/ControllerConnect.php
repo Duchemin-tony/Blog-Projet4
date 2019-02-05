@@ -2,6 +2,10 @@
 
 class ControllerConnect extends Controller
 {
+
+    /**
+    * Permet la connexion d'un membre
+    */
     function callConnectUser($post)
     {
         if((trim($post['email'])) && (trim($post['password'])))
@@ -18,6 +22,9 @@ class ControllerConnect extends Controller
         }
     }
 
+    /**
+    * Génère la vue de la connexion
+    */
     public function viewConnectUser()
     {
         $viewConnectUser = new View('connexion');

@@ -2,6 +2,9 @@
 
 class ControllerAdminSec extends Controller 
 {
+    /**
+    * Vérifie le status d'un membre
+    */
     public function autorisationEnter($sessionUser)
     {
         if(isset($sessionUser['idUser']) && (isset($sessionUser['email'])) && (isset($sessionUser['statusUser'])))
@@ -23,6 +26,9 @@ class ControllerAdminSec extends Controller
         }
     }
 
+    /**
+    * Vérifie la connexion à l'administration 
+    */
     public function connectAdmin($email, $password)
     {
         $dataUser = [
@@ -47,6 +53,9 @@ class ControllerAdminSec extends Controller
         }
     }
 
+    /**
+    * Génére la vue pour la connexion à l'administration
+    */
     public function adminSec()
     {
         $adminSec = new View('adminSec');

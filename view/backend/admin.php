@@ -25,9 +25,9 @@
     <thead>
     <tr>
         <td>Titre</td>
-        <td>Date</td>
+        <td class="td-date">Date</td>
 
-        <td>Commentaires</td>
+        <td class="td-comment">Commentaires</td>
         <td>Actions</td>
     </tr>
     </thead>
@@ -35,9 +35,9 @@
         <?php for($i = 0; $i < count($posts); $i++): ?>
         <tr>
             <td><a href="admin.php?action=post&change=on&postId=<?= $posts[$i]->id(); ?>"><?= $posts[$i]->title(); ?></a></td>
-            <td><?= $posts[$i]->creationDate(); ?> </td>
+            <td class="td-date"><?= $posts[$i]->creationDate(); ?> </td>
  
-            <td><?= $nbrComments[$i]; ?> Commentaire(s)</td>
+            <td class="td-comment"><?= $nbrComments[$i]; ?> Commentaire(s)</td>
             <td>
                 <a class="btn btn-warning" href="admin.php?action=post&change=on&postId=<?= $posts[$i]->id(); ?>">Modifier</a>
                 <a class="btn btn-danger" href="admin.php?action=delete&deletePost=on&postId=<?= $posts[$i]->id(); ?>">Supprimer</a>

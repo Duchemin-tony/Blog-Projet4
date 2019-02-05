@@ -11,16 +11,19 @@ class ControllerAdmin
         $this->setCommentManager(new CommentsManager());
     }
 
+    /**
+    * Affiche la liste des articles dans la partie Admin
+    */
     public function accueilAdmin()
     {
         $posts = $this->postManager()->getListPosts();
         for($i = 0; $i < count($posts); $i++)
         {
-            $nbrComments[$i] = $this->commentManager()->getNbrComments($posts[$i]->id());
-            $posts[$i]->setContent($this->cutText($posts[$i]->content(), 140));
+            $nbrComments[$i] = $this->commentManager()->getNbrComments($posts[$i]->id()); // Nombre de Com de chaque articles
+            $posts[$i]->setContent($this->cutText($posts[$i]->content(), 140)); 
             $posts[$i]->setTitle(ucfirst($posts[$i]->title()));
         }
-        $nbrCommentAlert = count($this->commentManager()->getListCommentsAlert());
+        $nbrCommentAlert = count($this->commentManager()->getListCommentsAlert()); // Nbr de Com signaler
         $view = new View('admin');
         $view->generate(array(
             'posts' => $posts,
@@ -28,6 +31,7 @@ class ControllerAdmin
             'nbrCommentAlert' => $nbrCommentAlert
         ));
     }
+
 
     private function cutText($text, $nbrChar)
     {
@@ -44,6 +48,9 @@ class ControllerAdmin
         return $text;
     }
 
+    /**
+    * Permet de supprimer un article et ses Coms
+    */
     public function deletePost($postId)
     {
         $this->postManager()->delete($postId);

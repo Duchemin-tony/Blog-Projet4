@@ -2,6 +2,10 @@
 
 class PostManager extends Manager
 {
+
+    /**
+    * Ajout d'un article 
+    */
     public function add($post)
     {
         $bdd = parent::bddConnect(); 
@@ -12,6 +16,9 @@ class PostManager extends Manager
         $request->execute() or die(print_r($request->errorInfo(), TRUE));
     }
 
+    /**
+    * Permet la modification d'un article 
+    */
     public function update($post)
     {
         $bdd = parent::bddConnect();
@@ -23,6 +30,9 @@ class PostManager extends Manager
         $request->execute() or die(print_r($request->errorInfo(), TRUE));
     }
 
+    /**
+    * Permet de supprimer un article 
+    */
     public function delete($id)
     {
         $bdd = parent::bddConnect();
@@ -31,6 +41,9 @@ class PostManager extends Manager
         $request->execute() or die(print_r($request->errorInfo(), TRUE));
     }
 
+    /**
+    * Récupère un article
+    */
     public function getPost($id)
     {
         $bdd = parent::bddConnect();
@@ -42,10 +55,13 @@ class PostManager extends Manager
         return $post; 
     }
 
+    /**
+    * Récupère tous les articles
+    */
     public function getListPosts()
     {
         $bdd = parent::bddConnect();
-        $request = $bdd->query('SELECT id, title, content, DATE_FORMAT(creationDate, \'%d-%m-%Y à %Hh%i\') AS creationDate FROM posts ORDER BY creationDate ') or die(print_r($request->errorInfo(), TRUE));
+        $request = $bdd->query('SELECT id, title, content, DATE_FORMAT(creationDate, \'%d-%m-%Y à %Hh%i\') AS creationDate FROM posts ORDER BY creationDate DESC') or die(print_r($request->errorInfo(), TRUE));
         $data = $request->fetchAll();
         for($i = 0; $i < count($data); $i++)
         {

@@ -9,6 +9,9 @@ class ControllerPost
         $this->setPostManager(new PostManager());
     }
 
+    /**
+    * Génére les textes des vues d'ajout ou de modification d'un article
+    */
     public function post($get)
     {
         $view = new View('post');
@@ -43,6 +46,7 @@ class ControllerPost
         ));
     }
 
+    
     public function decisionPost($post)
     {
         date_default_timezone_set('Europe/Monaco'); 

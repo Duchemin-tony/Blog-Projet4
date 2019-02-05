@@ -3,6 +3,9 @@
 class CommentsManager extends Manager 
 {
 
+    /**
+    * Permet l'ajout d'un commentaire en BDD
+    */
     public function add($comment)
     {
         $bdd = parent::bddConnect();
@@ -12,22 +15,23 @@ class CommentsManager extends Manager
         $request->bindValue(':postId', $comment->postId(), PDO::PARAM_INT);
         $request->bindValue(':idUser', $comment->idUser(), PDO::PARAM_INT);
         $request->bindValue(':alert', 0);
-        $request->execute() or die(print_r($request->errorInfo(), TRUE)); // or die permet d'afficher les erreurs de MySql
-    }
-
-    // Méthode de suppression d'un commentaire
-    public function delete($id)
-    {
-        // Connexion à la BDD
-        $bdd = parent::bddConnect();
-
-        // Prépare la requète de suppression d'un commentaire
-        $request = $bdd->prepare('DELETE FROM comments WHERE id = :id');
-        $request->bindValue(':id', $id, PDO::PARAM_INT);
-        // Execute la requète
         $request->execute() or die(print_r($request->errorInfo(), TRUE));
     }
 
+    /**
+    * Permet de supprimer un commentaire en BDD
+    */
+    public function delete($id)
+    {
+        $bdd = parent::bddConnect();
+        $request = $bdd->prepare('DELETE FROM comments WHERE id = :id');
+        $request->bindValue(':id', $id, PDO::PARAM_INT);
+        $request->execute() or die(print_r($request->errorInfo(), TRUE));
+    }
+
+    /**
+    * Permet la suppression des commentaires d'un article
+    */
     public function deleteCommentPost($postId)
     {
         $bdd = parent::bddConnect();
@@ -36,6 +40,9 @@ class CommentsManager extends Manager
         $request->execute() or die(print_r($request->errorInfo(), TRUE));
     }
 
+    /**
+    * Permet de récupérer les commentaires signalé
+    */
     public function getListCommentsAlert()
     {
         $bdd = parent::bddConnect();
@@ -50,6 +57,9 @@ class CommentsManager extends Manager
         return $comment;
     }
 
+    /**
+    * Récupère tous les commentaires d'un article
+    */
     public function getListCommentsPost($id)
     {
         $bdd = parent::bddConnect();
@@ -65,6 +75,9 @@ class CommentsManager extends Manager
         return $comment;
     }
 
+    /**
+    * Récupère le nbr de commentaire de chaque article
+    */
     public function getNbrComments($id)
     {
         $bdd = parent::bddConnect();
@@ -76,6 +89,9 @@ class CommentsManager extends Manager
         return $dataNbr['nbrComments'];
     }
 
+    /**
+    * Permet le signalement d'un commentaire en BDD
+    */
     public function reportComment($id)
     {
         $bdd = parent::bddConnect();
@@ -84,6 +100,9 @@ class CommentsManager extends Manager
         $request->execute() or die(print_r($request->errorInfo(), TRUE));
     }
 
+    /**
+    * Permet d'approuver le commentaire en BDD
+    */
     public function approb($id)
     {
         $bdd = parent::bddConnect();

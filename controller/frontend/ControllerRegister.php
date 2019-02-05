@@ -3,6 +3,9 @@
 class ControllerRegister extends Controller
 {
 
+    /**
+    * Permet d'inscrire un utilisateur
+    */
     public function registerUser($post)
     {
         if((trim($post['email'])) && (trim($post['emailConfirm'])) && (trim($post['password'])) && (trim($post['passwordConfirm'])))
@@ -46,6 +49,9 @@ class ControllerRegister extends Controller
         }
     }
 
+    /**
+    * Génère la vue d'inscription
+    */
     public function viewRegisterUser()
     {
         $viewRegisterUser = new View('register');

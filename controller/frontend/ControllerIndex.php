@@ -9,6 +9,9 @@ class ControllerIndex
         $this->setPostManager(new PostManager());
     }
 
+    /**
+    * Récupère la liste des articles
+    */
     function callGetPosts()
     {
         $posts = $this->postManager()->getListPosts();

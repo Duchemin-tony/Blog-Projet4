@@ -2,6 +2,10 @@
 
 class UserManager extends Manager
 {
+
+    /**
+    * Ajout d'un membre
+    */
     public function addUser($user)
     {
         $bdd = parent::bddConnect();
@@ -13,6 +17,9 @@ class UserManager extends Manager
         return $bdd->lastInsertId();
     }
 
+    /**
+    * Connexion d'un membre
+    */
     public function connexionUser($user)
     {
         $bdd = parent::bddConnect();

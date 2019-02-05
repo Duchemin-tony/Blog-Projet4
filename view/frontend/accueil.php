@@ -1,11 +1,10 @@
 <?php $this->setTitle('Billet simple pour l\'Alaska'); ?>
 
-
-<div class="container">
     <div class="jumbotron">
         <h1> Bienvenue sur le blog de Jean Forteroche</h1>
+        <p>A quibus propter discendi cupiditatem videmus ultimas terras esse peragratas. Ne in odium veniam, si amicum destitero tueri. Sed residamus, inquit, si placet. Scisse enim te quis coarguere possit? Non enim iam stirpis bonum quaeret, sed animalis. Quae cum essent dicta, finem fecimus et ambulandi et disputandi.</p>
     </div>
-</div>
+
 
 
 

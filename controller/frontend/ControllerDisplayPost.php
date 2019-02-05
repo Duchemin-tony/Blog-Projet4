@@ -12,11 +12,15 @@ class ControllerDisplayPost extends Controller
         $this->setCommentManager(new CommentsManager());
     }
 
+
     public function alertComment($idComment)
     {
         $this->commentManager()->reportComment($idComment);
     }
 
+    /**
+    * Permet l'inscription d'un membre ou sa connexion à l'ajout d'un Com
+    */
     public function addUserComment($postId, $email, $password, $comment)
     {
         if(isset($postId) && (trim($email)) && (trim($password)) && (trim($comment)))
@@ -49,6 +53,9 @@ class ControllerDisplayPost extends Controller
         }
     }
 
+    /**
+    * Permet d'ajouter Com
+    */
     public function addComment($contentComment, $postId, $idUser)
     {
         date_default_timezone_set('Europe/Monaco');
@@ -64,6 +71,10 @@ class ControllerDisplayPost extends Controller
         header("Location: $_SERVER[HTTP_REFERER]");
     }
 
+
+    /**
+    * Récupère article et ses commentaires
+    */
     public function displayPost($postId)
     {
         $post = $this->PostManager()->getPost($postId);
