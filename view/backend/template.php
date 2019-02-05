@@ -11,6 +11,7 @@
     <meta name="Description" content="Blog du célébre écrivain Jean Forteroche qui présente son nouveau roman Billet simple pour l'Alaska">
     <meta name="author" lang="fr" content="Tony Duchemin">
     <meta name="identifier-url" content="http://wwww.jean-forteroche-duchemin.fr">
+    <meta name="google-site-verification" content="zfPUmxUP9Bra2yQebRDPujWFpVjtvNsNhouUdk0_CEg" />
     <!-- Meta Open Graph -->
     <meta property="og:title" content="Billet simple pour l'Alaska de Jean Forteroche" />
     <meta property="og:url" content="http://www.jean-forteroche-duchemin.fr/public/images/alaska.jpg" />
@@ -63,7 +64,7 @@
       </div>
     </div>
   </nav>
-  <main role="main" class="container">
+  <main class="container">
     <div class="starter-template" style="padding-top: 100px;">
       <?= $content ?>
     </div>
