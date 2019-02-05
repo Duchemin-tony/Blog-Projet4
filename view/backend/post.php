@@ -2,7 +2,6 @@
 
 <div style="padding-bottom: 50px; padding-top: 50px;">
     <h1><?= $titlePage['titleSection']; ?></h1>
-
     <div>
         <form method="POST" action="admin.php?action=post">
             <p>
@@ -18,25 +17,14 @@
                 </textarea>
             </p>
             <p>
-                <?php
-                if(isset($_GET['change']) && ($_GET['change'] == 'on'))
-                {
-                ?>
+                <?php if(isset($_GET['change']) && ($_GET['change'] == 'on')) { ?>
                     <input type="hidden" name="change" value="on">
                     <input type="hidden" name="postId" value="<?= $_GET['postId']; ?>">
-                <?php
-                }
-                else
-                {
-                ?>
+                <?php } else { ?>
                     <input class="btn btn-success" type="hidden" name="addPost" value="add">
-                <?php
-                }
-                ?>
-
+                <?php } ?>
                 <input class="btn btn-success" type="submit" value="<?= $titlePage['buttonSend']; ?>"> 
             </p>
         </form>
     </div>
-
 </div>

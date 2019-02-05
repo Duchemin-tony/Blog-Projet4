@@ -2,7 +2,6 @@
 
 <a href="admin.php?action=post"><button type="submit" class="btn btn-success">Ajouter un article</button></a>
 
-
     <?php if($posts != null) { if($nbrCommentAlert != 0) { ?>
         <div>
             <form action="admin.php" method="get" style="padding-bottom: 50px; padding-top: 50px;">
@@ -19,34 +18,30 @@
                 <?php } ?>
             </form>
         </div>
-        <?php } ?>
-
+    <?php } ?>
     <table class="table">
-    <thead>
-    <tr>
-        <td>Titre</td>
-        <td class="td-date">Date</td>
-
-        <td class="td-comment">Commentaires</td>
-        <td>Actions</td>
-    </tr>
-    </thead>
-    <tbody>
-        <?php for($i = 0; $i < count($posts); $i++): ?>
-        <tr>
-            <td><a href="admin.php?action=post&change=on&postId=<?= $posts[$i]->id(); ?>"><?= $posts[$i]->title(); ?></a></td>
-            <td class="td-date"><?= $posts[$i]->creationDate(); ?> </td>
- 
-            <td class="td-comment"><?= $nbrComments[$i]; ?> Commentaire(s)</td>
-            <td>
-                <a class="btn btn-warning" href="admin.php?action=post&change=on&postId=<?= $posts[$i]->id(); ?>">Modifier</a>
-                <a class="btn btn-danger" href="admin.php?action=delete&deletePost=on&postId=<?= $posts[$i]->id(); ?>">Supprimer</a>
-                <a class="btn btn-primary" href="admin.php?action=comment&comment=on&postId=<?= $posts[$i]->id(); ?>">Afficher commentaire(s)</a>
-            </td>
-        </tr>
+        <thead>
+            <tr>
+                <td>Titre</td>
+                <td class="td-date">Date</td>
+                <td class="td-comment">Commentaires</td>
+                <td>Actions</td>
+            </tr>
+        </thead>
+        <tbody>
+            <?php for($i = 0; $i < count($posts); $i++): ?>
+            <tr>
+                <td><a href="admin.php?action=post&change=on&postId=<?= $posts[$i]->id(); ?>"><?= $posts[$i]->title(); ?></a></td>
+                <td class="td-date"><?= $posts[$i]->creationDate(); ?> </td>
+                <td class="td-comment"><?= $nbrComments[$i]; ?> Commentaire(s)</td>
+                <td>
+                    <a class="btn btn-warning" href="admin.php?action=post&change=on&postId=<?= $posts[$i]->id(); ?>">Modifier</a>
+                    <a class="btn btn-danger" href="admin.php?action=delete&deletePost=on&postId=<?= $posts[$i]->id(); ?>">Supprimer</a>
+                    <a class="btn btn-primary" href="admin.php?action=comment&comment=on&postId=<?= $posts[$i]->id(); ?>">Afficher commentaire(s)</a>
+                </td>
+            </tr>
         <?php endfor; ?>
     </tbody>
 </table>
+
 <?php } else { echo 'Votre Blog ne contient encore aucun article'; } ?>
-
-
