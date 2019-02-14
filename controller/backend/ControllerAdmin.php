@@ -38,7 +38,7 @@ class ControllerAdmin
         $text = trim(strip_tags($text));
         if(is_numeric($nbrChar))
         {
-            $PointSuspension = ' [...]';
+            $PointSuspension = ' ...';
             $LengthText = strlen($text);
             if ($LengthText > $nbrChar) {
                 $text = substr($text, 0, strpos($text, ' ', $nbrChar));
