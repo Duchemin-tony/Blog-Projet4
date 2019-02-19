@@ -26,7 +26,11 @@ class CommentsJoin extends Hydrator
         }
     }
 
-    public function setCreationDateComment($creationDateComment) { $this->_creationDateComment = $creationDateComment; }
+    public function setCreationDateComment($creationDateComment) 
+    {
+     $this->_creationDateComment = $creationDateComment; 
+    }
+
     public function setContentComment($contentComment)
     {
         if(!is_string($contentComment))

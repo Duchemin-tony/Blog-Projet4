@@ -7,7 +7,7 @@ if(isset($comments[0])) {
 } 
 ?>
 
-<a href="admin.php"><button class="btn btn-primary">Voir la liste des articles</button></a>
+<a href="administration"><button class="btn btn-primary">Voir la liste des articles</button></a>
 
 <div style="padding-bottom: 50px; padding-top: 50px;">
     <h1><?= $titleSection; ?></h1>
@@ -30,12 +30,12 @@ if(isset($comments[0])) {
                     <td class="content"><?= $comments[$i]->contentComment(); ?></td>
                     <td>
                         <a class="btn btn-danger" href="admin.php?action=delete&deleteComment=on&idComment=<?= $comments[$i]->idComment(); ?>">Supprimer</a>
-                        <a class="btn btn-primary" href="index.php?action=post&id=<?= $postId; ?>" target=_blank>Voir l'article</a>
+                        <a class="btn btn-primary" href="article-<?= $postId; ?>" target=_blank>Voir l'article</a>
                             <?php if($comments[$i]->alertComment()) { ?>
                         <a class="btn btn-warning" href="admin.php?action=comment&approb=on&id=<?= $comments[$i]->idComment(); ?>" title="Approuver le commentaire signaler">Approuver le commentaire</a>
                         <?php } ?>
                     </td>
                 </tr>
-            <?php endfor; } else { echo 'Aucun commentaire n\'a encore était poster pour cette article !'; } ?>
+            <?php endfor; } else { echo 'Aucun commentaire n\'a encore était posté pour cette article !'; } ?>
             </tbody>
         </table>

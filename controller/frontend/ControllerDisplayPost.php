@@ -19,7 +19,7 @@ class ControllerDisplayPost extends Controller
     }
 
     /**
-    * Permet l'inscription d'un membre ou sa connexion à l'ajout d'un Com
+    * Permet l'inscription d'un membre ou sa connexion à l'ajout d'un Commentaire
     */
     public function addUserComment($postId, $pseudo, $password, $comment)
     {

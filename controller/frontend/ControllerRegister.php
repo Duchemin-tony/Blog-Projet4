@@ -4,7 +4,7 @@ class ControllerRegister extends Controller
 {
 
     /**
-    * Permet d'inscrire un utilisateur
+    * Permet l'inscription d'un utilisateur
     */
     public function registerUser($post)
     {

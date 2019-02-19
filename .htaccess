@@ -1,0 +1,11 @@
+# On suit les liens symboliques 
+Options +FollowSymlinks 
+# Activation du mod rewrite d'Apache 
+RewriteEngine on 
+RewriteRule accueil  index.php
+RewriteRule article-([0-9]+)  index.php?action=post&id=$1
+RewriteRule administration  admin.php
+RewriteRule connexion  index.php?action=connexion
+RewriteRule inscription  index.php?action=register
+RewriteRule ajouter-article  admin.php?action=post
+RewriteRule commentaire-signalé  action=comment&alertComments=on

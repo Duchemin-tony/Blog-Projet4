@@ -1,4 +1,4 @@
-<a href="admin.php"><button class="btn btn-primary">Voir la liste des articles</button></a>
+<a href="administration"><button class="btn btn-primary">Voir la liste des articles</button></a>
 
 <div style="padding-bottom: 50px; padding-top: 50px;">
     <h1><?= $titlePage['titleSection']; ?></h1>

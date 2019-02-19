@@ -3,7 +3,7 @@
 class ControllerAdminSec extends Controller 
 {
     /**
-    * Vérifie le status d'un membre
+    * Vérifie le statut d'un membre
     */
     public function autorisationEnter($sessionUser)
     {

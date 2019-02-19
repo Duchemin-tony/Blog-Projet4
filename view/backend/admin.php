@@ -1,12 +1,12 @@
 <?php $this->setTitle('Administration - Billet simple pour l\'Alaska'); ?>
 
-<a href="admin.php?action=post"><button type="submit" class="btn btn-success">Ajouter un article</button></a>
+<a href="ajouter-article"><button type="submit" class="btn btn-success">Ajouter un article</button></a>
 
     <?php if($posts != null) { if($nbrCommentAlert != 0) { ?>
         <div>
             <form action="admin.php" method="get" style="padding-bottom: 50px; padding-top: 50px;">
                 <?php if($nbrCommentAlert == 1) { ?>
-                    <p><?= $nbrCommentAlert; ?> commentaire a était signaler</p>
+                    <p><?= $nbrCommentAlert; ?> commentaire à était signaler</p>
                     <input type="hidden" name="action" value="comment"> 
                     <input type="hidden" name="alertComments" value="on">
                     <button type="submit" class="btn btn-primary">Visualiser le commentaire</button>

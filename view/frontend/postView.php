@@ -1,6 +1,6 @@
 <?php $this->setTitle($post->title() . ' - Billet simple pour l\'Alaska'); ?>
 
-<p><a href="index.php"><button class="btn btn-primary">Retour à la liste des articles</button></a></p>
+<p><a href="accueil"><button class="btn btn-primary">Retour à la liste des articles</button></a></p>
 
 <div class="jumbotron">
     <h1><?= $post->title(); ?></h1>
@@ -29,13 +29,13 @@
                 </a>
             </div>
             <div class="media-body">
-                <h4 class="media-heading"><?= $commentsPost[$i]->pseudoUser(); ?> Posté le <?= $commentsPost[$i]->creationDateComment(); ?></h4>
+                <h4 class="media-heading"><?= $commentsPost[$i]->pseudoUser(); ?> a posté le <?= $commentsPost[$i]->creationDateComment(); ?></h4>
                 <?= $commentsPost[$i]->contentComment(); ?>
                     <form action="index.php?action=post&id=<?= $_GET['id']; ?>" method="post">
                         <input type="hidden" name="idComment" value="<?= $commentsPost[$i]->idComment(); ?>">
                         <input type="hidden" name="reportComment" value="reportComment">
                             <?php if($commentsPost[$i]->alertComment() == 1) { ?>
-                        <button type="submit" class="btn btn-danger" disabled>Commentaire signaler</button>
+                        <button type="submit" class="btn btn-danger" disabled>Commentaire signalé</button>
                             <?php } else { ?>
                         <button type="submit" class="btn btn-danger">Signaler</button>
                             <?php } ?>

@@ -9,9 +9,6 @@ class ControllerComment
         $this->setCommentManager(new CommentsManager()); 
     }
 
-    /**
-    * 
-    */
     public function decisionComment($get)
     {
         if(isset($get['approb']) && ($get['approb'] == 'on')) 
@@ -77,7 +74,7 @@ class ControllerComment
         }
         else
         {
-            header('Location:admin.php');
+            header('Location:administration');
         }
         $view = new View('comment');
         $view->generate(array(
@@ -100,7 +97,7 @@ class ControllerComment
                 $nbrCommentAlert = count($this->commentManager()->getListCommentsAlert());
                 if($nbrCommentAlert != 0) 
                 {
-                    $urlRedirection = 'Location:admin.php?displayComment=comment&alertComments=on';
+                    $urlRedirection = 'Location:commentaire-signalé';
                     header($urlRedirection);
                 }
             }
@@ -116,7 +113,7 @@ class ControllerComment
     }
 
     /**
-    * Supprime un Com
+    * Supprime un commentaire
     */
     public function deleteComment($idComment)
     {

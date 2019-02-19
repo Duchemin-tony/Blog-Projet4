@@ -10,7 +10,7 @@ class Controller
     }
 
     /**
-    * Permet la déconnexion d'un membre
+    * Permet la connexion d'un membre
     */
     public function connect($dataUser)
     {

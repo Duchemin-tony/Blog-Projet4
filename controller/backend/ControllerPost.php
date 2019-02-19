@@ -46,7 +46,9 @@ class ControllerPost
         ));
     }
 
-    
+    /**
+    * Création ou modification d'un article
+    */
     public function decisionPost($post)
     {
         date_default_timezone_set('Europe/Monaco'); 
@@ -73,7 +75,7 @@ class ControllerPost
             $post = new Post($dataPost);
             $this->postManager()->update($post);
         }
-        header('Location:admin.php');
+        header('Location:administration');
     }
 
     public function setPostManager($postManager) { $this->_postManager = $postManager; }

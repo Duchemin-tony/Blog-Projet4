@@ -1,7 +1,7 @@
 <?php
 if(isset($_SESSION['idUser']))
 {
-    header('Location:index.php');
+    header('Location:accueil');
 }
 
 $this->setTitle('Inscription - Billet simple pour l\'Alaska'); ?>
@@ -19,7 +19,7 @@ $this->setTitle('Inscription - Billet simple pour l\'Alaska'); ?>
       <label for="password" class="sr-only">Mot de passe</label>
       <input type="password" id="password" name="password" class="form-control" placeholder="Mot de passe">
       <br>
-      <label for="passwordConfirm" class="sr-only">Confirmez mot de passe</label>
+      <label for="passwordConfirm" class="sr-only">Confirmez votre mot de passe</label>
       <input type="password" id="passwordConfirm" name="passwordConfirm" class="form-control" placeholder="Confirmez mot de passe" >
       <br>
       <button class="btn btn-lg btn-primary btn-block" type="submit" >S'inscrire</button>

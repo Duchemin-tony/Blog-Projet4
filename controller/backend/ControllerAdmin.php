@@ -19,11 +19,11 @@ class ControllerAdmin
         $posts = $this->postManager()->getListPosts();
         for($i = 0; $i < count($posts); $i++)
         {
-            $nbrComments[$i] = $this->commentManager()->getNbrComments($posts[$i]->id()); // Nombre de Com de chaque articles
+            $nbrComments[$i] = $this->commentManager()->getNbrComments($posts[$i]->id()); // Nombre de commentaire de chaque article
             $posts[$i]->setContent($this->cutText($posts[$i]->content(), 140)); 
             $posts[$i]->setTitle(ucfirst($posts[$i]->title()));
         }
-        $nbrCommentAlert = count($this->commentManager()->getListCommentsAlert()); // Nbr de Com signaler
+        $nbrCommentAlert = count($this->commentManager()->getListCommentsAlert()); // Nombre de commentaire signalé
         $view = new View('admin');
         $view->generate(array(
             'posts' => $posts,
@@ -49,7 +49,7 @@ class ControllerAdmin
     }
 
     /**
-    * Permet de supprimer un article et ses Coms
+    * Permet de supprimer un article et ses commentaires
     */
     public function deletePost($postId)
     {

@@ -2,7 +2,7 @@
 if(isset($_SESSION['idUser']))
 {
     // Redirige le membre vers index.php
-    header('Location:index.php');
+    header('Location:accueil');
 }
 $this->setTitle('Connexion - Billet simple pour l\'Alaska'); ?>
 
